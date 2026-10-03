@@ -742,3 +742,88 @@ button {
     gap: 9px;
   }
 }
+
+/* =========================================
+   ТУСГАЙ ӨНГӨ: Автомат дилдо хуудас (Нил ягаан/Ягаан)
+   ========================================= */
+.theme-avto {
+  background-color: #fcf9ff;
+}
+.theme-avto .eyebrow {
+  color: #d500f9;
+}
+.theme-avto h1 {
+  color: #3a0ca3;
+}
+.theme-avto .guide-card {
+  box-shadow: 0 4px 20px rgba(213, 0, 249, 0.1);
+  border: 1px solid #f3e5f5;
+}
+.theme-avto .section-number {
+  background: linear-gradient(135deg, #d500f9, #4361ee);
+}
+.theme-avto .section-button:hover {
+  background: #faf5ff;
+}
+.theme-avto .sub-option.active {
+  border-color: #d500f9;
+  background: #f8edff;
+  color: #3a0ca3;
+  font-weight: bold;
+}
+.theme-avto .sub-option:hover {
+  background: #faf5ff;
+}
+.theme-avto .video-section {
+  background: linear-gradient(135deg, #0b090a, #240046);
+  box-shadow: 0 10px 25px rgba(36, 0, 70, 0.4);
+  border: 1px solid #3c096c;
+}
+.theme-avto .video-label {
+  color: #f72585;
+}
+.theme-avto .video-note {
+  color: #c8b6ff;
+}
+/* =========================================
+   ТУСГАЙ ӨНГӨ: Anal хуудас
+   ========================================= */
+.theme-anal {
+  background-color: #fff5f5;
+}
+.theme-anal .eyebrow {
+  color: #e53e3e;
+}
+.theme-anal h1 {
+  color: #9b2c2c;
+}
+.theme-anal .guide-card {
+  box-shadow: 0 4px 20px rgba(229, 62, 62, 0.1);
+  border: 1px solid #fed7d7;
+}
+.theme-anal .section-number {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+}
+.theme-anal .section-button:hover {
+  background: #fff8f8;
+}
+.theme-anal .sub-option.active {
+  border-color: #e53e3e;
+  background: #fff5f5;
+  color: #9b2c2c;
+  font-weight: bold;
+}
+.theme-anal .sub-option:hover {
+  background: #fff8f8;
+}
+.theme-anal .video-section {
+  background: linear-gradient(135deg, #1a1a1a, #4a0000);
+  box-shadow: 0 10px 25px rgba(74, 0, 0, 0.4);
+  border: 1px solid #742a2a;
+}
+.theme-anal .video-label {
+  color: #fc8181;
+}
+.theme-anal .video-note {
+  color: #feb2b2;
+}
