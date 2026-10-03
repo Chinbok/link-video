@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Линкбичлэг",
-  description: "Монгол бичлэгийн вэб UI",
+  description: "Нууц",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="mn">
+    <html lang="mn" suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
