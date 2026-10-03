@@ -18,7 +18,14 @@ const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 // Таны хүссэн 4 шинэ товч болон тэдгээрийн бүтэц
 const sections: Section[] = [
   {
-    title: "Автомат дилдо",
+    title: "Яагаад хэрэглэх ёстой вэ?",
+    video: {
+      title: "Яагаад хэрэглэх ёстой вэ?",
+      src: `${VIDEO_BASE}/body-no-vibe.mp4`, // Өөрийн видеоны нэрээр солих
+    },
+  },
+  {
+    title: "Автомат шодойнуудыг хэрхэн ашиглах вэ?",
     items: [
       {
         title: "3 зэрэг өдөөгчтэй",
@@ -31,16 +38,16 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Чичиргээтэй body dildo",
+    title: "Чичиргээтэй хиймэл шодой заавар",
     video: {
-      title: "Чичиргээтэй body dildo заавар",
+      title: "Чичиргээтэй хиймэл шодой заавар",
       src: `${VIDEO_BASE}/body-vibe.mp4`, // Өөрийн видеоны нэрээр солих
     },
   },
   {
-    title: "Чичиргээгүй body dildo",
+    title: "Чичиргээгүй хиймэл шoдой заавар",
     video: {
-      title: "Чичиргээгүй body dildo заавар",
+      title: "Чичиргээгүй хиймэл шoдой заавар",
       src: `${VIDEO_BASE}/body-no-vibe.mp4`, // Өөрийн видеоны нэрээр солих
     },
   },
