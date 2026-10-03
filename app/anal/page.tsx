@@ -127,7 +127,6 @@ export default function AnalPage() {
                           className={`sub-option ${activeVideo?.src === item.src ? "active" : ""}`}
                           onClick={() => playVideo(item)}
                         >
-                          <span className="sub-play">▶</span>
                           <span className="sub-title">{item.title}</span>
                           <span className="sub-action">Үзэх</span>
                         </button>
