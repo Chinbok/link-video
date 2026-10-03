@@ -13,56 +13,50 @@ type Section = {
   video?: VideoItem;
 };
 
-const VIDEO_BASE = "https://erchuudiindelguur.mn/videos/";
+const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
 const sections: Section[] = [
   {
-    title: "Vib",
+    title: "Заавар бичлэг 1",
     video: {
-      title: "Vib ашиглах заавар",
+      title: "Заавар бичлэг 1 үзэх",
+      src: `${VIDEO_BASE}/Hiimel.mp4`, // Өөрийн видеоны нэрээр солих
+    },
+  },
+  {
+    title: "Иддэг гел",
+    video: {
+      title: "Иддэг гел ашиглах заавар",
       src: `${VIDEO_BASE}/3odoogch.mp4`, // Өөрийн видеоны нэрээр солих
     },
   },
   {
-    title: "Тос",
-    items: [
-      {
-        title: "Gel",
-        src: `${VIDEO_BASE}/Hiimel.mp4`, // Өөрийн видеоны нэрээр солих
-      },
-      {
-        title: "Чийгшүүлэгч",
-        src: `${VIDEO_BASE}/gel-hot.mp4`, // Өөрийн видеоны нэрээр солих
-      },
-      {
-        title: "Хуурай",
-        src: `${VIDEO_BASE}/huurai.mp4`, // Өөрийн видеоны нэрээр солих
-      },
-    ],
-  },
-  {
-    title: "Цацлага",
+    title: "Тосон гел",
     video: {
-      title: "Цацлага хэрэглэх заавар",
-      src: `${VIDEO_BASE}/tsatslaga.mp4`, // Өөрийн видеоны нэрээр солих
+      title: "Тосон гел ашиглах заавар",
+      src: `${VIDEO_BASE}/toson-gel.mp4`, // Өөрийн видеоны нэрээр солих
     },
   },
   {
-    title: "Хиймэл хүн",
-    items: [
-      {
-        title: "Орос",
-        src: `${VIDEO_BASE}/hiimel-oros.mp4`, // Өөрийн видеоны нэрээр солих
-      },
-      {
-        title: "Хятад",
-        src: `${VIDEO_BASE}/hiimel-hytad.mp4`, // Өөрийн видеоны нэрээр солих
-      },
-      {
-        title: "Монгол",
-        src: `${VIDEO_BASE}/hiimel-mongol.mp4`, // Өөрийн видеоны нэрээр солих
-      },
-    ],
+    title: "Хөөсөрдөг гел",
+    video: {
+      title: "Хөөсөрдөг гел ашиглах заавар",
+      src: `${VIDEO_BASE}/hoosordog-gel.mp4`, // Өөрийн видеоны нэрээр солих
+    },
+  },
+  {
+    title: "Энгийн гел",
+    video: {
+      title: "Энгийн гел ашиглах заавар",
+      src: `${VIDEO_BASE}/engiin-gel.mp4`, // Өөрийн видеоны нэрээр солих
+    },
+  },
+  {
+    title: "Заавар бичлэг 2",
+    video: {
+      title: "Заавар бичлэг 2 үзэх",
+      src: `${VIDEO_BASE}/video-2.mp4`, // Өөрийн видеоны нэрээр солих
+    },
   },
 ];
 
