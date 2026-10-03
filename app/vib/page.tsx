@@ -20,7 +20,7 @@ const sections: Section[] = [
     title: "Vib",
     video: {
       title: "Vib ашиглах заавар",
-      src: `${VIDEO_BASE}/vib.mp4`, // Өөрийн видеоны нэрээр солих
+      src: `${VIDEO_BASE}/3odoogch.mp4`, // Өөрийн видеоны нэрээр солих
     },
   },
   {
@@ -28,11 +28,11 @@ const sections: Section[] = [
     items: [
       {
         title: "Gel",
-        src: `${VIDEO_BASE}/gel.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/Hiimel.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Чийгшүүлэгч",
-        src: `${VIDEO_BASE}/chiigshuulegch.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/gel-hot.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Хуурай",
