@@ -15,27 +15,59 @@ type Section = {
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
-// Энэ хуудсанд зориулсан бичлэгүүд
+// Таны хүссэн 4 шинэ товч болон тэдгээрийн бүтэц
 const sections: Section[] = [
   {
-    title: "Автомат дилдо хэрэглэх заавар",
+    title: "Автомат дилдо",
     items: [
       {
-        title: "Хэрхэн асааж удирдах вэ?",
-        src: `${VIDEO_BASE}/nd-avto-dildo-start.mp4`,
+        title: "3 зэрэг өдөөгчтэй",
+        src: `${VIDEO_BASE}/avto-3-zereg.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
-        title: "Горим солих болон хурд тохируулах",
-        src: `${VIDEO_BASE}/nd-avto-dildo-modes.mp4`,
+        title: "Elite",
+        src: `${VIDEO_BASE}/avto-elite.mp4`, // Өөрийн видеоны нэрээр солих
       },
     ],
   },
   {
-    title: "Цэвэрлэгээ болон хадгалалт",
+    title: "Чичиргээтэй body dildo",
     video: {
-      title: "Зөв цэвэрлэж хадгалах арга",
-      src: `${VIDEO_BASE}/nd-avto-dildo-clean.mp4`,
+      title: "Чичиргээтэй body dildo заавар",
+      src: `${VIDEO_BASE}/body-vibe.mp4`, // Өөрийн видеоны нэрээр солих
     },
+  },
+  {
+    title: "Чичиргээгүй body dildo",
+    video: {
+      title: "Чичиргээгүй body dildo заавар",
+      src: `${VIDEO_BASE}/body-no-vibe.mp4`, // Өөрийн видеоны нэрээр солих
+    },
+  },
+  {
+    title: "Хамт хэрэглэх бүтээгдэхүүн",
+    items: [
+      {
+        title: "Чийгшүүлэгч",
+        src: `${VIDEO_BASE}/chiigshuulegch.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+      {
+        title: "Саван",
+        src: `${VIDEO_BASE}/savan.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+      {
+        title: "Эмэгтэй өдөөгч",
+        src: `${VIDEO_BASE}/emegtei-odoogch.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+      {
+        title: "Угаадаг бэлгэвч",
+        src: `${VIDEO_BASE}/ugaadag-belgevch.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+      {
+        title: "Бүргуй",
+        src: `${VIDEO_BASE}/burgui.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+    ],
   },
 ];
 
@@ -74,13 +106,11 @@ export default function NdAvtoDildoPage() {
   };
 
   return (
-    <main className="app-shell theme-avto ">
+    <main className="app-shell">
       <div className="page-container">
         <header className="page-header">
           <div className="eyebrow">ВИДЕО ЗААВАР</div>
-
-          <h1>Автомат дилдо ашиглах заавар</h1>
-
+          <h1>Бүтээгдэхүүн ашиглах заавар</h1>
           <p>Доорх хэсгээс сонирхож буй заавраа сонгон бичлэгийг үзээрэй.</p>
         </header>
 
@@ -122,9 +152,11 @@ export default function NdAvtoDildoPage() {
                     <div className="section-options">
                       {section.items!.map((item) => (
                         <button
-                          key={item.src}
+                          key={item.src + item.title}
                           type="button"
-                          className={`sub-option ${activeVideo?.src === item.src ? "active" : ""}`}
+                          className={`sub-option ${
+                            activeVideo?.src === item.src ? "active" : ""
+                          }`}
                           onClick={() => playVideo(item)}
                         >
                           <span className="sub-play">▶</span>
