@@ -21,7 +21,7 @@ const sections: Section[] = [
     title: "Яагаад хэрэглэх ёстой вэ?",
     video: {
       title: "Яагаад хэрэглэх ёстой вэ?",
-      src: `${VIDEO_BASE}/body-no-vibe.mp4`, // Өөрийн видеоны нэрээр солих
+      src: `${VIDEO_BASE}/Hiimel.mp4`, // Өөрийн видеоны нэрээр солих
     },
   },
   {
