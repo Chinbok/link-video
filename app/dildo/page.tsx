@@ -122,9 +122,9 @@ export default function NdAvtoDildoPage() {
     <main className="app-shell">
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">ВИДЕО ЗААВАР</div>
-          <h1>Бүтээгдэхүүн ашиглах заавар</h1>
-          <p>Доорх хэсгээс сонирхож буй заавраа сонгон бичлэгийг үзээрэй.</p>
+          <div className="eyebrow">ШОДОЙ ВИДЕО</div>
+          <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧД</h1>
+          <p>Захилга өгөх дугаар:7272-2002 9910-5590.</p>
         </header>
 
         <section className="guide-card">
