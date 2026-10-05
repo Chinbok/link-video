@@ -15,7 +15,6 @@ type Section = {
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
-// Таны хүссэн 4 шинэ товч болон тэдгээрийн бүтэц
 const sections: Section[] = [
   {
     title: "Яагаад хэрэглэх ёстой вэ?",
@@ -69,6 +68,23 @@ const sections: Section[] = [
       {
         title: "Бүргуй",
         src: `${VIDEO_BASE}/burgui.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+    ],
+  },
+  {
+    title: "Бусад шодой заавар үзэх", // 6 дахь товчны нэр
+    items: [
+      {
+        title: "Чичиргээгүй боди шодой үзэх",
+        src: `${VIDEO_BASE}/chichirgeegui.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+      {
+        title: "Чичиргээтэй боди шодой үзэх",
+        src: `${VIDEO_BASE}/nd-au.mp4`, // Өөрийн видеоны нэрээр солих
+      },
+      {
+        title: "Автомат шодой үзэх",
+        src: `${VIDEO_BASE}/chichirgeetei.mp4`, // Өөрийн видеоны нэрээр солих
       },
     ],
   },
@@ -158,7 +174,10 @@ export default function NdAvtoDildoPage() {
                           key={item.src + item.title}
                           type="button"
                           className={`sub-option ${
-                            activeVideo?.src === item.src ? "active" : ""
+                            activeVideo?.src === item.src &&
+                            activeVideo?.title === item.title
+                              ? "active"
+                              : ""
                           }`}
                           onClick={() => playVideo(item)}
                         >
