@@ -128,6 +128,7 @@ export default function NdAvtoDildoPage() {
             Захилга өгөх дугаар:7272-2002 9910-5590 сайтар захилга өгөх
             www.erchuudiindelguur.mn.
           </p>
+          <p>САЙТАР ЗАХИЛГА ӨГӨХ www.erchuudiindelguur.mn.</p>
         </header>
 
         <section className="guide-card">
