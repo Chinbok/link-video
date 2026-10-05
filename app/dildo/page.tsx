@@ -57,11 +57,11 @@ const sections: Section[] = [
       },
       {
         title: "Эмэгтэй өдөөгч",
-        src: `${VIDEO_BASE}/emegtei-odoogch.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/e uduugch.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Угаадаг бэлгэвч",
-        src: `${VIDEO_BASE}/e_shodoi_belgeewch.mp4.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/e_shodoi_belgeewch.mp4`, // Өөрийн видеоны нэрээр солих
       },
     ],
   },
