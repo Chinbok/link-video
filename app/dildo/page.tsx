@@ -28,8 +28,8 @@ const sections: Section[] = [
     title: "Автомат шодойнуудыг хэрхэн ашиглах вэ?",
     items: [
       {
-        title: "3 зэрэг өдөөгчтэй",
-        src: `${VIDEO_BASE}/3odoogch.mp4`, // Өөрийн видеоны нэрээр солих
+        title: "энгийн шод",
+        src: `${VIDEO_BASE}/chichirgeegui.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Elite",
