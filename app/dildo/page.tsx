@@ -28,12 +28,12 @@ const sections: Section[] = [
     title: "Автомат шодойнуудыг хэрхэн ашиглах вэ?",
     items: [
       {
-        title: "энгийн шод",
+        title: "энгийн шодой",
         src: `${VIDEO_BASE}/chichirgeegui.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
-        title: "Elite",
-        src: `${VIDEO_BASE}/avto-elite.mp4`, // Өөрийн видеоны нэрээр солих
+        title: "хэрэглэж байгаа бичлэг",
+        src: `${VIDEO_BASE}/e toy porno.mp4`, // Өөрийн видеоны нэрээр солих
       },
     ],
   },
