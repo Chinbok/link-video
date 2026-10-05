@@ -74,7 +74,7 @@ const sections: Section[] = [
       },
       {
         title: "Чичиргээтэй боди шодой",
-        src: `${VIDEO_BASE}/A_body_dildo.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/A_body_dildo1.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Автомат шодой",
