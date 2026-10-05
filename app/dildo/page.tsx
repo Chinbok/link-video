@@ -49,7 +49,7 @@ const sections: Section[] = [
     items: [
       {
         title: "Чийгшүүлэгч",
-        src: `${VIDEO_BASE}/chiigshuulegch.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/chig_v.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Саван",
@@ -78,7 +78,7 @@ const sections: Section[] = [
       },
       {
         title: "Автомат шодой",
-        src: `${VIDEO_BASE}/chichirgeetei.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/a_vibe_dildo.mp4`, // Өөрийн видеоны нэрээр солих
       },
     ],
   },
