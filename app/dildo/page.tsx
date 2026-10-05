@@ -53,7 +53,7 @@ const sections: Section[] = [
       },
       {
         title: "Саван",
-        src: `${VIDEO_BASE}/sawan.mp4`, // Өөрийн видеоны нэрээр солих
+        src: `${VIDEO_BASE}/savan.mp4`, // Өөрийн видеоны нэрээр солих
       },
       {
         title: "Эмэгтэй өдөөгч",
