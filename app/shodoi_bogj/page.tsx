@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 type VideoItem = {
   title: string;
@@ -102,20 +102,30 @@ export default function NdAvtoDildoPage() {
     setActiveVideo(video);
     setOpenSection(null);
 
+    // Зөвхөн дэлгэц гүйлгэх үйлдлийг энд хийнэ
     setTimeout(() => {
-      const player = videoRef.current;
-      if (player) {
-        player.muted = false;
-        player.volume = 1;
-        player.currentTime = 0;
-        player.play().catch(() => {});
-      }
       videoSectionRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     }, 120);
   };
+
+  // Гар утасны харлаж гацдаг алдааг засах логик
+  useEffect(() => {
+    if (activeVideo && videoRef.current) {
+      const player = videoRef.current;
+      player.load(); // Утасны хөтөч дээр шинэ видеог дахин уншуулах маш чухал үйлдэл
+
+      const playPromise = player.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Утас автоматаар тоглуулахыг хориглосон бол харлахгүйгээр зогсолттой үлдэнэ
+          // Хэрэглэгч өөрөө play товчийг дарах боломжтой болно.
+        });
+      }
+    }
+  }, [activeVideo]);
 
   const handleSection = (section: Section, index: number) => {
     if (section.video) {
@@ -205,7 +215,6 @@ export default function NdAvtoDildoPage() {
               </div>
             </div>
 
-            {/* УТАС ДЭЭР 16:9 ХЭВТЭЭ ХАРЬЦААГААР ХАРАГДАХ ТОХИРГОО */}
             <div
               className="video-wrap"
               style={{
@@ -213,19 +222,22 @@ export default function NdAvtoDildoPage() {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                maxWidth: "800px", // Хэвтээ учир илүү өргөн болгох боломжтой
-                aspectRatio: "16 / 9", // 16:9 хэвтээ харьцаа
+                maxWidth: "800px",
+                aspectRatio: "16 / 9",
                 margin: "0 auto",
                 padding: 0,
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: "16px",
                 backgroundColor: "#000",
+                // iOS төхөөрөмж дээр видеоны дүрс харлахыг зогсоох код
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
               }}
             >
               <video
                 ref={videoRef}
-                key={activeVideo.src}
+                // Энд байсан key={activeVideo.src} хэсгийг устгасан
                 className="video-frame"
                 src={activeVideo.src}
                 controls
@@ -234,7 +246,7 @@ export default function NdAvtoDildoPage() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "contain", // Видеоны дүрсийг тайрахгүйгээр бүтнээр нь багтаана
+                  objectFit: "contain",
                   display: "block",
                   borderRadius: "16px",
                 }}
