@@ -15,31 +15,84 @@ type Section = {
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
-// Anal хуудсанд зориулсан бичлэгийн жагсаалт
 const sections: Section[] = [
   {
-    title: "Бэлтгэл үе шат болон зөвлөгөө",
+    title: "Яагаад хэрэглэх ёстой вэ?",
+    video: {
+      title: "Яагаад хэрэглэх ёстой вэ?",
+      src: `${VIDEO_BASE}/bugj_yagd.mp4`,
+    },
+  },
+  {
+    title: "Нуруутай шодойн бөгж үзэх бол энэ дээр дарна уу",
+    video: {
+      title: "Нуруутай шодойн бөгж заавар",
+      src: `${VIDEO_BASE}/bugj_nurrutai.mp4`,
+    },
+  },
+  {
+    title: "Хэлүүний өдөөгчтэй шодойн бөгж үзэх бол энэ дээр дарна уу",
+    video: {
+      title: "Хэлүүний өдөөгчтэй шодойн бөгж заавар",
+      src: `${VIDEO_BASE}/bugj_helu.mp4`,
+    },
+  },
+  {
+    title: "Түрүүн булчирхайн массаж нь шодойн бөгжүзэх бол энэ дээр дарна уу",
+    video: {
+      title: "Түрүү булчирхайн массажтай шодойн бөгж заавар",
+      src: `${VIDEO_BASE}/bugj_er_anal.mp4`,
+    },
+  },
+  // ШИНЭЭР НЭМСЭН ХЭСЭГ: "Хамт хэрэглэх бүтээгдэхүүн"-ийн дээр
+  {
+    title: "Хямд шодойн бөгж үзэх бол энэ дээр дарна уу",
+    video: {
+      title: "Хямд шодойн бөгж заавар",
+      src: `${VIDEO_BASE}/bugj_hymd.mp4`, // ЭНД өөрийн видеоны нэрийг бичнэ үү
+    },
+  },
+  {
+    title: "Хамт хэрэглэх бүтээгдэхүүн",
     items: [
       {
-        title: "Анхаарах зүйлс болон бэлтгэл",
-        src: `${VIDEO_BASE}/anal-prep.mp4`,
+        title: "Чийгшүүлэгч",
+        src: `${VIDEO_BASE}/bugj_chig.mp4`,
       },
       {
-        title: "Зөв байрлал сонгох",
-        src: `${VIDEO_BASE}/anal-position.mp4`,
+        title: "Саван",
+        src: `${VIDEO_BASE}/bugj_savan.mp4`,
+      },
+      {
+        title: "Эмэгтэй өдөөгч",
+        src: `${VIDEO_BASE}/bugj_udugch.mp4`,
+      },
+      {
+        title: "Угаадаг бэлгэвч",
+        src: `${VIDEO_BASE}/bugj_belgewch.mp4`,
       },
     ],
   },
   {
-    title: "Тосолгооны бүтээгдэхүүн сонгох",
-    video: {
-      title: "Ямар тос хэрхэх вэ?",
-      src: `${VIDEO_BASE}/anal-lube.mp4`,
-    },
+    title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
+    items: [
+      {
+        title: "Чичиргээгүй боди шодой ",
+        src: `${VIDEO_BASE}/e toy porno.mp4`,
+      },
+      {
+        title: "Чичиргээтэй боди шодой",
+        src: `${VIDEO_BASE}/A_body_dildo1.mp4`,
+      },
+      {
+        title: "Автомат шодой",
+        src: `${VIDEO_BASE}/a_vibe_dildo.mp4`,
+      },
+    ],
   },
 ];
 
-export default function AnalPage() {
+export default function NdAvtoDildoPage() {
   const [openSection, setOpenSection] = useState<number | null>(null);
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
 
@@ -74,14 +127,13 @@ export default function AnalPage() {
   };
 
   return (
-    <main className="app-shell theme-anal">
+    <main className="app-shell">
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">ВИДЕО ЗААВАР</div>
-
-          <h1>Тусгай зориулалтын бүтээгдэхүүний заавар</h1>
-
-          <p>Доорх хэсгээс сонирхож буй заавраа сонгон бичлэгийг үзээрэй.</p>
+          <div className="eyebrow">ШОДОЙ БӨГЖ ВИДЕО</div>
+          <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
+          <p>Захиалга өгөх дугаар: 7272-2002, 9910-5590.</p>
+          <p>САЙТААР ЗАХИАЛГА ӨГӨХ: www.erchuudiindelguur.mn</p>
         </header>
 
         <section className="guide-card">
@@ -122,11 +174,17 @@ export default function AnalPage() {
                     <div className="section-options">
                       {section.items!.map((item) => (
                         <button
-                          key={item.src}
+                          key={item.src + item.title}
                           type="button"
-                          className={`sub-option ${activeVideo?.src === item.src ? "active" : ""}`}
+                          className={`sub-option ${
+                            activeVideo?.src === item.src &&
+                            activeVideo?.title === item.title
+                              ? "active"
+                              : ""
+                          }`}
                           onClick={() => playVideo(item)}
                         >
+                          <span className="sub-play">▶</span>
                           <span className="sub-title">{item.title}</span>
                           <span className="sub-action">Үзэх</span>
                         </button>
@@ -148,7 +206,11 @@ export default function AnalPage() {
               </div>
             </div>
 
-            <div className="video-wrap">
+            {/* ВИДЕО ТОГЛУУЛАГЧИЙГ 9:16 ХАРЬЦААТАЙ БОЛГОН ӨӨРЧИЛСӨН ХЭСЭГ */}
+            <div
+              className="video-wrap"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
               <video
                 ref={videoRef}
                 key={activeVideo.src}
@@ -157,6 +219,13 @@ export default function AnalPage() {
                 controls
                 playsInline
                 preload="metadata"
+                style={{
+                  width: "100%",
+                  maxWidth: "400px", // Компьютер дээр хэт томрохоос хамгаална
+                  aspectRatio: "9/16", // 9:16 босоо хэмжээсийг барина
+                  backgroundColor: "#000",
+                  borderRadius: "8px",
+                }}
               />
             </div>
 
