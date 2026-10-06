@@ -205,7 +205,7 @@ export default function NdAvtoDildoPage() {
               </div>
             </div>
 
-            {/* УТАС ДЭЭР ХАР ХҮРЭЭГҮЙ БҮРЭН 9:16 ХАРAГДАХ ТОХИРГОО */}
+            {/* УТАС ДЭЭР 16:9 ХЭВТЭЭ ХАРЬЦААГААР ХАРАГДАХ ТОХИРГОО */}
             <div
               className="video-wrap"
               style={{
@@ -213,9 +213,8 @@ export default function NdAvtoDildoPage() {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                maxWidth: "340px",
-                maxHeight: "70vh", // Утасны дэлгэцийн өндөрт тааруулна
-                aspectRatio: "9 / 16",
+                maxWidth: "800px", // Хэвтээ учир илүү өргөн болгох боломжтой
+                aspectRatio: "16 / 9", // 16:9 хэвтээ харьцаа
                 margin: "0 auto",
                 padding: 0,
                 position: "relative",
@@ -235,7 +234,7 @@ export default function NdAvtoDildoPage() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover", // Суларсан хар зураасыг арилгаж хүрээг дүүргэнэ
+                  objectFit: "contain", // Видеоны дүрсийг тайрахгүйгээр бүтнээр нь багтаана
                   display: "block",
                   borderRadius: "16px",
                 }}
