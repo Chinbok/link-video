@@ -74,20 +74,10 @@ const sections: Section[] = [
   },
   {
     title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
-    items: [
-      {
-        title: "Чичиргээгүй боди шодой ",
-        src: `${VIDEO_BASE}/e toy porno.mp4`,
-      },
-      {
-        title: "Чичиргээтэй боди шодой",
-        src: `${VIDEO_BASE}/A_body_dildo1.mp4`,
-      },
-      {
-        title: "Автомат шодой",
-        src: `${VIDEO_BASE}/a_vibe_dildo.mp4`,
-      },
-    ],
+    video: {
+      title: "Хэрэглэж байгаа бичлэг",
+      src: `${VIDEO_BASE}/bugj_porno.mp4`,
+    },
   },
 ];
 
@@ -237,7 +227,6 @@ export default function NdAvtoDildoPage() {
             >
               <video
                 ref={videoRef}
-                // Энд байсан key={activeVideo.src} хэсгийг устгасан
                 className="video-frame"
                 src={activeVideo.src}
                 controls
