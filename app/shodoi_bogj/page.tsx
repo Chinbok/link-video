@@ -38,18 +38,17 @@ const sections: Section[] = [
     },
   },
   {
-    title: "Түрүүн булчирхайн массаж нь шодойн бөгжүзэх бол энэ дээр дарна уу",
+    title: "Түрүүн булчирхайн массажтай шодойн бөгж үзэх бол энэ дээр дарна уу",
     video: {
       title: "Түрүү булчирхайн массажтай шодойн бөгж заавар",
       src: `${VIDEO_BASE}/bugj_er_anal.mp4`,
     },
   },
-  // ШИНЭЭР НЭМСЭН ХЭСЭГ: "Хамт хэрэглэх бүтээгдэхүүн"-ийн дээр
   {
     title: "Хямд шодойн бөгж үзэх бол энэ дээр дарна уу",
     video: {
       title: "Хямд шодойн бөгж заавар",
-      src: `${VIDEO_BASE}/bugj_hymd.mp4`, // ЭНД өөрийн видеоны нэрийг бичнэ үү
+      src: `${VIDEO_BASE}/bugj_hymd.mp4`,
     },
   },
   {
@@ -206,10 +205,25 @@ export default function NdAvtoDildoPage() {
               </div>
             </div>
 
-            {/* ВИДЕО ТОГЛУУЛАГЧИЙГ 9:16 ХАРЬЦААТАЙ БОЛГОН ӨӨРЧИЛСӨН ХЭСЭГ */}
+            {/* ВИДЕОГ 9:16 (БОСОО) БОЛГОЖ CSS ДАВХАРДЛЫГ АРИЛГАСАН ХЭСЭГ */}
             <div
               className="video-wrap"
-              style={{ display: "flex", justifyContent: "center" }}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                maxWidth: "360px", // Босоо видеоны тохиромжтой өргөн
+                aspectRatio: "9/16", // 9:16 босоо харьцаа
+                margin: "0 auto",
+                paddingTop: 0,
+                paddingBottom: 0,
+                height: "auto",
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "12px",
+                backgroundColor: "#000",
+              }}
             >
               <video
                 ref={videoRef}
@@ -221,10 +235,11 @@ export default function NdAvtoDildoPage() {
                 preload="metadata"
                 style={{
                   width: "100%",
-                  maxWidth: "400px", // Компьютер дээр хэт томрохоос хамгаална
-                  aspectRatio: "9/16", // 9:16 босоо хэмжээсийг барина
-                  backgroundColor: "#000",
-                  borderRadius: "8px",
+                  height: "100%",
+                  objectFit: "contain", // Бичлэгийг таслахгүй бүтэн харуулна (хэрэв тайрч дүүргэх бол "cover" болгоно)
+                  position: "relative",
+                  top: "auto",
+                  left: "auto",
                 }}
               />
             </div>
