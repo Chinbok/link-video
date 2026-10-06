@@ -205,7 +205,7 @@ export default function NdAvtoDildoPage() {
               </div>
             </div>
 
-            {/* ВИДЕОГ 9:16 (БОСОО) БОЛГОЖ CSS ДАВХАРДЛЫГ АРИЛГАСАН ХЭСЭГ */}
+            {/* УТАС ДЭЭР ХАР ХҮРЭЭГҮЙ БҮРЭН 9:16 ХАРAГДАХ ТОХИРГОО */}
             <div
               className="video-wrap"
               style={{
@@ -213,15 +213,14 @@ export default function NdAvtoDildoPage() {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                maxWidth: "360px", // Босоо видеоны тохиромжтой өргөн
-                aspectRatio: "9/16", // 9:16 босоо харьцаа
+                maxWidth: "340px",
+                maxHeight: "70vh", // Утасны дэлгэцийн өндөрт тааруулна
+                aspectRatio: "9 / 16",
                 margin: "0 auto",
-                paddingTop: 0,
-                paddingBottom: 0,
-                height: "auto",
+                padding: 0,
                 position: "relative",
                 overflow: "hidden",
-                borderRadius: "12px",
+                borderRadius: "16px",
                 backgroundColor: "#000",
               }}
             >
@@ -236,10 +235,9 @@ export default function NdAvtoDildoPage() {
                 style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "contain", // Бичлэгийг таслахгүй бүтэн харуулна (хэрэв тайрч дүүргэх бол "cover" болгоно)
-                  position: "relative",
-                  top: "auto",
-                  left: "auto",
+                  objectFit: "cover", // Суларсан хар зураасыг арилгаж хүрээг дүүргэнэ
+                  display: "block",
+                  borderRadius: "16px",
                 }}
               />
             </div>
