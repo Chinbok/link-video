@@ -107,6 +107,10 @@ const sections: Section[] = [
     ],
   },
   {
+    title: "Захиалга өгөх",
+    link: "https://erchuudiindelguur.mn/khiimel-shodoi/",
+  },
+  {
     title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
     items: [
       {
@@ -122,10 +126,6 @@ const sections: Section[] = [
         src: `${VIDEO_BASE}/a_vibe_dildo.mp4`,
       },
     ],
-  },
-  {
-    title: "Захиалга өгөх",
-    link: "https://erchuudiindelguur.mn/khiimel-shodoi/",
   },
 ];
 
