@@ -11,7 +11,7 @@ type Section = {
   title: string;
   items?: VideoItem[];
   video?: VideoItem;
-  link?: string; // Шинээр линк нэмэх боломжтой болголоо
+  link?: string;
 };
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
@@ -25,7 +25,8 @@ const sections: Section[] = [
     },
   },
   {
-    title: "Анх удаа тоглоом хэрэглэх гэж байгаа бол эндээс үзээрэй",
+    title:
+      "Анх удаа тоглоом хэрэглэх гэж байгаа бол энэ дээр дарна уу (4 төрлийн сонголт байгаа)",
     items: [
       { title: "боди шодой D-116", src: `${VIDEO_BASE}/bodi_shodoi_d116.mp4` },
       { title: "боди шодой D-111", src: `${VIDEO_BASE}/bodi_shodoi_d111.mp4` },
@@ -34,7 +35,8 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Чичиргээгүй боди шодойнуудыг үзэх бол энэ дээр дарна уу",
+    title:
+      "Чичиргээгүй боди шодойнуудыг үзэх бол энэ дээр дарна уу (7 төрлийн сонголт байгаа)",
     items: [
       { title: "боди шодой D-118", src: `${VIDEO_BASE}/bodi_shodoi_d118.mp4` },
       { title: "боди шодой D-119", src: `${VIDEO_BASE}/bodi_shodoi_d119.mp4` },
@@ -46,7 +48,8 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Чичиргээтэй боди шодойнуудыг үзэх бол энэ дээр дарна уу",
+    title:
+      "Чичиргээтэй боди шодойнуудыг үзэх бол энэ дээр дарна уу (7 төрлийн сонголт байгаа)",
     items: [
       {
         title: "боди шодой ND-46A",
@@ -61,7 +64,8 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Автомат шодойнуудыг үзэх бол энэ дээр дарна уу",
+    title:
+      "Автомат шодойнуудыг үзэх бол энэ дээр дарна уу (4 төрлийн сонголт байгаа)",
     items: [
       {
         title: "Автомат шодой ND-157",
@@ -119,7 +123,6 @@ const sections: Section[] = [
       },
     ],
   },
-  // 8 ДАХЬ ТОВЧЛУУР: ЗАХИАЛГА ӨГӨХ
   {
     title: "Захиалга өгөх",
     link: "https://erchuudiindelguur.mn/track/",
@@ -153,7 +156,6 @@ export default function NdAvtoDildoPage() {
   };
 
   const handleSection = (section: Section, index: number) => {
-    // Хэрэв link байвал шууд тэр линк рүүгээ орно
     if (section.link) {
       window.location.href = section.link;
       return;
