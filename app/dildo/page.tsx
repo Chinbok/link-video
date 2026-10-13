@@ -125,7 +125,7 @@ const sections: Section[] = [
   },
   {
     title: "Захиалга өгөх",
-    link: "https://erchuudiindelguur.mn/track/",
+    link: "https://erchuudiindelguur.mn/khiimel-shodoi/",
   },
 ];
 
