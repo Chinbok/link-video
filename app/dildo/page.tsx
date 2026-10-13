@@ -25,24 +25,55 @@ const sections: Section[] = [
   },
   {
     title: "Чичиргээгүй боди шодойнуудыг үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Чичиргээгүй боди шодой заавар",
-      src: `${VIDEO_BASE}/chichirgeegui.mp4`, // Өөрийн видеоны нэрээр солих
-    },
+    items: [
+      { title: "боди шодой D-116", src: `${VIDEO_BASE}/bodi_shodoi_d116.mp4` },
+      { title: "бodи шodoй D-111", src: `${VIDEO_BASE}/bodi_shodoi_d111.mp4` },
+      { title: "бodи шodoй D-114", src: `${VIDEO_BASE}/bodi_shodoi_d114.mp4` },
+      { title: "бodи шodoй D-117", src: `${VIDEO_BASE}/bodi_shodoi_d117.mp4` },
+      { title: "бodи шodoй D-118", src: `${VIDEO_BASE}/bodi_shodoi_d118.mp4` },
+      { title: "бodи шodoй D-119", src: `${VIDEO_BASE}/bodi_shodoi_d119.mp4` },
+      { title: "бodи шodoй D-121", src: `${VIDEO_BASE}/bodi_shodoi_d121.mp4` },
+      { title: "бodи шodoй B-112", src: `${VIDEO_BASE}/bodi_shodoi_b112.mp4` },
+      { title: "боди шодой ND-40", src: `${VIDEO_BASE}/bodi_shodoi_nd40.mp4` },
+      { title: "боди шодой ND-61", src: `${VIDEO_BASE}/bodi_shodoi_nd61.mp4` },
+      { title: "боди шодой ND-43", src: `${VIDEO_BASE}/bodi_shodoi_nd43.mp4` },
+    ],
   },
   {
     title: "Чичиргээтэй боди шодойнуудыг үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Чичиргээтэй хиймэл шодой заавар",
-      src: `${VIDEO_BASE}/nd-au.mp4`, // Өөрийн видеоны нэрээр солих
-    },
+    items: [
+      {
+        title: "боди шодой ND-46A",
+        src: `${VIDEO_BASE}/bodi_shodoi_nd46aA.mp4`,
+      },
+      { title: "бodи шodoй D-119", src: `${VIDEO_BASE}/bodi_shodoi_d119.mp4` },
+      { title: "бodи шodoй D-121", src: `${VIDEO_BASE}/bodi_shodoi_d121.mp4` },
+      { title: "бodи шodoй B-112", src: `${VIDEO_BASE}/bodi_shodoi_b112.mp4` },
+      { title: "бodи шodoй ND-40", src: `${VIDEO_BASE}/bodi_shodoi_nd40.mp4` },
+      { title: "бodи шodoй ND-61", src: `${VIDEO_BASE}/bodi_shodoi_nd61.mp4` },
+      { title: "бodи шodoй ND-43", src: `${VIDEO_BASE}/bodi_shodoi_nd43.mp4` },
+    ],
   },
   {
     title: "Автомат шодойнуудыг үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Автомат шодой",
-      src: `${VIDEO_BASE}/chichirgeetei.mp4`, // Өөрийн видеоны нэрээр солих
-    },
+    items: [
+      {
+        title: "Автомат шodoй ND-157",
+        src: `${VIDEO_BASE}/auto_shodoi_nd157.mp4`,
+      },
+      {
+        title: "Автомат шodoй ND-158",
+        src: `${VIDEO_BASE}/auto_shodoi_nd158.mp4`,
+      },
+      {
+        title: "Автомат шodoй ND-146",
+        src: `${VIDEO_BASE}/auto_shodoi_nd146.mp4`,
+      },
+      {
+        title: "Автомат шodoй ND-154",
+        src: `${VIDEO_BASE}/auto_shodoi_nd154.mp4`,
+      },
+    ],
   },
   {
     title: "Хамт хэрэглэх бүтээгдэхүүн",
@@ -124,8 +155,8 @@ export default function NdAvtoDildoPage() {
         <header className="page-header">
           <div className="eyebrow">ШОДОЙ ВИДЕО</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
-          <p>Захилга өгөх дугаар:7272-2002 9910-5590.</p>
-          <p>САЙТАР ЗАХИЛГА ӨГӨХ www.erchuudiindelguur.mn.</p>
+          <p>Захиалга өгөх дугаар: 7272-2002 9910-5590.</p>
+          <p>САЙТААР ЗАХИАЛГА ӨГӨХ www.erchuudiindelguur.mn</p>
         </header>
 
         <section className="guide-card">
