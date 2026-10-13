@@ -25,31 +25,43 @@ const sections: Section[] = [
   },
   {
     title: "Нуруутай шодойн бөгж үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Нуруутай шодойн бөгж заавар",
-      src: `${VIDEO_BASE}/bugj_nurrutai.mp4`,
-    },
+    items: [
+      { title: "бөгж 001", src: `${VIDEO_BASE}/bugj_001.mp4` },
+      { title: "бөгж 002", src: `${VIDEO_BASE}/bugj_002.mp4` },
+      { title: "бөгж 38", src: `${VIDEO_BASE}/bugj_38.mp4` },
+      { title: "бөгж 40", src: `${VIDEO_BASE}/bugj_40.mp4` },
+      { title: "бөгж 047", src: `${VIDEO_BASE}/bugj_047.mp4` },
+      { title: "бөгж 47", src: `${VIDEO_BASE}/bugj_47.mp4` },
+      { title: "бөгж 55", src: `${VIDEO_BASE}/bugj_55.mp4` },
+      { title: "бөгж 58", src: `${VIDEO_BASE}/bugj_58.mp4` },
+      { title: "бөгж 63", src: `${VIDEO_BASE}/bugj_63.mp4` },
+    ],
   },
   {
     title: "Хэлүүний өдөөгчтэй шодойн бөгж үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Хэлүүний өдөөгчтэй шодойн бөгж заавар",
-      src: `${VIDEO_BASE}/bugj_helu.mp4`,
-    },
+    items: [
+      { title: "бөгж 050", src: `${VIDEO_BASE}/bugj_helu_050.mp4` },
+      { title: "бөгж 48", src: `${VIDEO_BASE}/bugj_helu_48.mp4` },
+      { title: "бөгж 49", src: `${VIDEO_BASE}/bugj_helu_49.mp4` },
+      { title: "бөгж 028", src: `${VIDEO_BASE}/bugj_helu_28.mp4` },
+    ],
   },
   {
     title: "Түрүү булчирхайн массажтай шодойн бөгж үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Түрүү булчирхайн массажтай шодойн бөгж заавар",
-      src: `${VIDEO_BASE}/bugj_er_anal.mp4`,
-    },
+    items: [
+      { title: "бөгж 45", src: `${VIDEO_BASE}/bugj_anal_45.mp4` },
+      { title: "бөгж 51", src: `${VIDEO_BASE}/bugj_anal_51.mp4` },
+    ],
   },
   {
     title: "Хямд шодойн бөгж үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Хямд шодойн бөгж заавар",
-      src: `${VIDEO_BASE}/bugj_hymd.mp4`,
-    },
+    items: [
+      { title: "бөгж 44", src: `${VIDEO_BASE}/bugj_hymd_44.mp4` },
+      { title: "бөгж 36", src: `${VIDEO_BASE}/bugj_hymd_36.mp4` },
+      { title: "бөгж 004", src: `${VIDEO_BASE}/bugj_hymd_004.mp4` },
+      { title: "бөгж 401", src: `${VIDEO_BASE}/bugj_hymd_401.mp4` },
+      { title: "бөгж 402", src: `${VIDEO_BASE}/bugj_hymd_402.mp4` },
+    ],
   },
   {
     title: "Хамт хэрэглэх бүтээгдэхүүн",
