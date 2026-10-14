@@ -124,7 +124,7 @@ const sections: Section[] = [
   },
   {
     title: "Захиалга өгөх",
-    link: "https://erchuudiindelguur.mn/khiimel-shodoi/",
+    link: "https://www.facebook.com/profile.php?id=61584532924262",
   },
   {
     title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
