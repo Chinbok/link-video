@@ -223,8 +223,7 @@ export default function NdAvtoDildoPage() {
                       <strong>{section.title}</strong>
                       <small>
                         {isLink
-                          ? "эрчүүдийн дэлгүүрийн Page 
-"
+                          ? "Эрчүүдийн дэлгүүрийн Page" // Энд өөрчлөлт орсон
                           : hasDropdown
                             ? "Сонголтуудыг харах"
                             : "Бичлэг үзэх"}
