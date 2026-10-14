@@ -135,7 +135,7 @@ export default function NdAvtoDildoPage() {
     <main className="app-shell">
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">ШОДОЙ ВИДЕО</div>
+          <div className="eyebrow">Хэлүү өдөөгч ВИДЕО</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
           <p>Захиалга өгөх дугаар: 7272-2002 9910-5590.</p>
           <p>САЙТААР ЗАХИАЛГА ӨГӨХ www.erchuudiindelguur.mn</p>
