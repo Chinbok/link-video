@@ -89,17 +89,18 @@ const sections: Section[] = [
       },
     ],
   },
+  // 7 ДАХЬ ТОВЧЛУУР БОЛГОЖ БАЙРЫГ НЬ СОЛЬСОН
+  {
+    title: "Захиалга өгөх",
+    link: "https://www.facebook.com/profile.php?id=61584532924262",
+  },
+  // 8 ДАХЬ ТОВЧЛУУР БОЛГОЖ БАЙРЫГ НЬ СОЛЬСОН
   {
     title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
     video: {
       title: "Хэрэглэж байгаа бичлэг",
       src: `${VIDEO_BASE}/bugj_porno.mp4`,
     },
-  },
-  // 8 ДАХЬ ТОВЧЛУУР НЭМЛЭЭ
-  {
-    title: "Захиалга өгөх",
-    link: "https://www.facebook.com/profile.php?id=61584532924262",
   },
 ];
 
