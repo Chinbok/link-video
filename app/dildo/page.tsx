@@ -26,12 +26,28 @@ const sections: Section[] = [
   },
   {
     title:
-      "Анх удаа тоглоом хэрэглэх гэж байгаа бол энэ дээр дарна уу (4 төрлийн сонголт байгаа)",
+      "Анх удаа тоглоом хэрэглэх гэж байгаа бол энэ дээр дарна уу (8 төрлийн сонголт байгаа)",
     items: [
       { title: "боди шодой D-116", src: `${VIDEO_BASE}/bodi_shodoi_d116.mp4` },
       { title: "боди шодой D-111", src: `${VIDEO_BASE}/bodi_shodoi_d111.mp4` },
       { title: "боди шодой D-114", src: `${VIDEO_BASE}/bodi_shodoi_d114.mp4` },
       { title: "боди шодой D-117", src: `${VIDEO_BASE}/bodi_shodoi_d117.mp4` },
+      {
+        title: "Автомат шодой ND-157",
+        src: `${VIDEO_BASE}/auto_shodoi_nd157.mp4`,
+      },
+      {
+        title: "Автомат шодой ND-158",
+        src: `${VIDEO_BASE}/auto_shodoi_nd158.mp4`,
+      },
+      {
+        title: "Автомат шодой ND-146",
+        src: `${VIDEO_BASE}/auto_shodoi_nd146.mp4`,
+      },
+      {
+        title: "Автомат шодой ND-154",
+        src: `${VIDEO_BASE}/auto_shodoi_nd154.mp4`,
+      },
     ],
   },
   {
