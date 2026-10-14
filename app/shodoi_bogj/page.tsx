@@ -11,6 +11,7 @@ type Section = {
   title: string;
   items?: VideoItem[];
   video?: VideoItem;
+  link?: string; // Линк нэмэх боломжтой болголоо
 };
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
@@ -24,7 +25,8 @@ const sections: Section[] = [
     },
   },
   {
-    title: "Нуруутай шодойн бөгж үзэх бол энэ дээр дарна уу",
+    title:
+      "Нуруутай шодойн бөгж үзэх бол энэ дээр дарна уу (9 төрлийн сонголт байгаа)",
     items: [
       { title: "бөгж 001", src: `${VIDEO_BASE}/bugj_001.mp4` },
       { title: "бөгж 002", src: `${VIDEO_BASE}/bugj_002.mp4` },
@@ -38,7 +40,8 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Хэлүүний өдөөгчтэй шодойн бөгж үзэх бол энэ дээр дарна уу",
+    title:
+      "Хэлүүний өдөөгчтэй шодойн бөгж үзэх бол энэ дээр дарна уу (4 төрлийн сонголт байгаа)",
     items: [
       { title: "бөгж 050", src: `${VIDEO_BASE}/bugj_helu_050.mp4` },
       { title: "бөгж 48", src: `${VIDEO_BASE}/bugj_helu_48.mp4` },
@@ -47,14 +50,16 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Түрүү булчирхайн массажтай шодойн бөгж үзэх бол энэ дээр дарна уу",
+    title:
+      "Түрүү булчирхайн массажтай шодойн бөгж үзэх бол энэ дээр дарна уу (2 төрлийн сонголт байгаа)",
     items: [
       { title: "бөгж 45", src: `${VIDEO_BASE}/bugj_anal_45.mp4` },
       { title: "бөгж 51", src: `${VIDEO_BASE}/bugj_anal_51.mp4` },
     ],
   },
   {
-    title: "Хямд шодойн бөгж үзэх бол энэ дээр дарна уу",
+    title:
+      "Хямд шодойн бөгж үзэх бол энэ дээр дарна уу (5 төрлийн сонголт байгаа)",
     items: [
       { title: "бөгж 44", src: `${VIDEO_BASE}/bugj_hymd_44.mp4` },
       { title: "бөгж 36", src: `${VIDEO_BASE}/bugj_hymd_36.mp4` },
@@ -90,6 +95,11 @@ const sections: Section[] = [
       title: "Хэрэглэж байгаа бичлэг",
       src: `${VIDEO_BASE}/bugj_porno.mp4`,
     },
+  },
+  // 8 ДАХЬ ТОВЧЛУУР НЭМЛЭЭ
+  {
+    title: "Захиалга өгөх",
+    link: "https://www.facebook.com/profile.php?id=61584532924262",
   },
 ];
 
@@ -130,10 +140,17 @@ export default function NdAvtoDildoPage() {
   }, [activeVideo]);
 
   const handleSection = (section: Section, index: number) => {
+    // Хэрэв линк байвал шууд үсрэнэ
+    if (section.link) {
+      window.location.href = section.link;
+      return;
+    }
+
     if (section.video) {
       playVideo(section.video);
       return;
     }
+
     setOpenSection(openSection === index ? null : index);
   };
 
@@ -157,6 +174,7 @@ export default function NdAvtoDildoPage() {
             {sections.map((section, index) => {
               const isOpen = openSection === index;
               const hasDropdown = !!section.items;
+              const isLink = !!section.link;
 
               return (
                 <div
@@ -173,11 +191,15 @@ export default function NdAvtoDildoPage() {
                     <span className="section-text">
                       <strong>{section.title}</strong>
                       <small>
-                        {hasDropdown ? "Сонголтуудыг харах" : "Бичлэг үзэх"}
+                        {isLink
+                          ? "Эрчүүдийн дэлгүүрийн Page"
+                          : hasDropdown
+                            ? "Сонголтуудыг харах"
+                            : "Бичлэг үзэх"}
                       </small>
                     </span>
                     <span className={`section-icon ${isOpen ? "rotate" : ""}`}>
-                      {hasDropdown ? "⌄" : "▶"}
+                      {isLink ? "↗" : hasDropdown ? "⌄" : "▶"}
                     </span>
                   </button>
 
