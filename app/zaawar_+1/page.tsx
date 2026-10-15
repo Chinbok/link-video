@@ -280,13 +280,13 @@ export default function SoftDarkVideoPage() {
         <header className="page-header">
           <div className="eyebrow">Зөвлөгөө БИЧЛЭГ</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
-          <p>Захиалга өгөх дугаар: 7277-0044</p>
+          <p>Захиалга өгөх дугаар: 7277-0044 8810-9133</p>
           <p>САЙТААР ЗАХИАЛГА ӨГӨХ hotmongolia.shop</p>
         </header>
 
         <section className="guide-card">
           <div className="guide-heading">
-            <span>Зөвлөгөөний төрөл</span>
+            <span>Зөвлөгөө +1</span>
             <small>Бичлэг үзэх бол доорх дээр дарна уу</small>
           </div>
 
