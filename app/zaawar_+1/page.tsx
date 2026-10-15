@@ -16,7 +16,6 @@ type Section = {
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
-// 1 дүгээр товчлуур шууд видео руу үсэрнэ, 2 дугаар товчлуур линк рүү орно
 const sections: Section[] = [
   {
     title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө +1",
@@ -32,7 +31,7 @@ const sections: Section[] = [
 ];
 
 export default function SoftDarkVideoPage() {
-  const [isVerified, setIsVerified] = useState<boolean>(false);
+  const [isVerified, setIsVerified] = useState(false);
   const [openSection, setOpenSection] = useState<number | null>(null);
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
 
@@ -45,12 +44,14 @@ export default function SoftDarkVideoPage() {
 
     setTimeout(() => {
       const player = videoRef.current;
+
       if (player) {
         player.muted = false;
         player.volume = 1;
         player.currentTime = 0;
         player.play().catch(() => {});
       }
+
       videoSectionRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -71,133 +72,124 @@ export default function SoftDarkVideoPage() {
 
     if (section.items) {
       setOpenSection(openSection === index ? null : index);
-      return;
     }
   };
 
-  // 1. 18+ баталгаажуулах цонх
+  // 18+ НАС БАТАЛГААЖУУЛАХ
   if (!isVerified) {
     return (
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          backgroundColor: "#121212",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "20px",
-          zIndex: 9999,
-          fontFamily: "sans-serif",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "#1c1c1e",
-            border: "1px solid #2c2c2e",
-            padding: "40px 24px",
-            borderRadius: "20px",
-            textAlign: "center",
-            maxWidth: "400px",
-            width: "100%",
-            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.4)",
-          }}
-        >
-          <div style={{ marginBottom: "24px" }}>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "60px",
-                height: "60px",
-                borderRadius: "50%",
-                border: "2px solid #f87171",
-                position: "relative",
-                backgroundColor: "rgba(248, 113, 113, 0.05)",
-              }}
-            >
-              <span
-                style={{
-                  color: "#f87171",
-                  fontSize: "24px",
-                  fontWeight: "800",
-                }}
-              >
-                18
-              </span>
-              <div
-                style={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "2px",
-                  backgroundColor: "#f87171",
-                  transform: "rotate(-45deg)",
-                }}
-              ></div>
-            </div>
-          </div>
+      <div className="age-overlay">
+        <style>{`
+          * { box-sizing: border-box; }
 
-          <h2
-            style={{
-              color: "#ffffff",
-              fontSize: "20px",
-              fontWeight: "900",
-              marginBottom: "12px",
-              letterSpacing: "0.5px",
-            }}
-          >
-            НАСАНД ХҮРЭГЧДЭД ЗОРИУЛАВ
-          </h2>
+          body {
+            margin: 0;
+            background: #101010;
+            font-family: system-ui, sans-serif;
+          }
 
-          <p
-            style={{
-              color: "#d1d5db",
-              fontSize: "14px",
-              marginBottom: "32px",
-              lineHeight: "1.6",
-              fontWeight: "500",
-            }}
-          >
+          .age-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #101010;
+            z-index: 9999;
+          }
+
+          .age-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 36px 26px;
+            background: #1b1b1d;
+            border: 1px solid #303034;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 20px 70px #0007;
+          }
+
+          .age-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid #f87171;
+            color: #f87171;
+            font-size: 27px;
+            font-weight: 900;
+            background: #f8717112;
+          }
+
+          .age-title {
+            color: #fff;
+            font-size: 21px;
+            font-weight: 900;
+            line-height: 1.4;
+            margin: 0 0 14px;
+          }
+
+          .age-description {
+            color: #aaaab2;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+          }
+
+          .age-actions {
+            display: flex;
+            gap: 12px;
+          }
+
+          .age-actions button {
+            flex: 1;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 8px;
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+          }
+
+          .age-yes {
+            background: #f87171;
+            color: #181818;
+          }
+
+          .age-no {
+            background: #303034;
+            color: #fff;
+          }
+        `}</style>
+
+        <div className="age-card">
+          <div className="age-icon">18+</div>
+
+          <h2 className="age-title">НАСАНД ХҮРЭГЧДЭД ЗОРИУЛАВ</h2>
+
+          <p className="age-description">
             Энэхүү хуудас нь насанд хүрэгчдийн контент агуулсан тул та зөвхөн 18
             буюу түүнээс дээш настай бол нэвтрэнэ үү.
           </p>
 
-          <div style={{ display: "flex", gap: "12px", width: "100%" }}>
+          <div className="age-actions">
             <button
+              type="button"
+              className="age-yes"
               onClick={() => setIsVerified(true)}
-              style={{
-                flex: 1,
-                backgroundColor: "#f87171",
-                color: "#1c1c1e",
-                padding: "14px",
-                borderRadius: "12px",
-                fontWeight: "800",
-                fontSize: "14px",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.2s",
-                WebkitAppearance: "none",
-                appearance: "none",
-              }}
             >
               ТИЙМ, БИ 18+
             </button>
+
             <button
-              onClick={() => (window.location.href = "https://google.com")}
-              style={{
-                flex: 1,
-                backgroundColor: "#2c2c2e",
-                color: "#ffffff",
-                padding: "14px",
-                borderRadius: "12px",
-                fontWeight: "800",
-                fontSize: "14px",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.2s",
-                WebkitAppearance: "none",
-                appearance: "none",
+              type="button"
+              className="age-no"
+              onClick={() => {
+                window.location.href = "https://google.com";
               }}
             >
               ҮГҮЙ
@@ -208,91 +200,408 @@ export default function SoftDarkVideoPage() {
     );
   }
 
-  // 2. Үндсэн сайт
+  // ҮНДСЭН ХУУДАС
   return (
     <main className="app-shell">
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        body { background-color: #121212 !important; color: #ffffff !important; margin: 0; padding: 0; }
-        
-        button { 
-          appearance: none !important; 
-          -webkit-appearance: none !important; 
-          -moz-appearance: none !important;
-          background: transparent !important; 
-          background-color: transparent !important; 
-          border: none !important; 
-          box-shadow: none !important;
-          font-family: inherit; 
-          outline: none !important; 
-          -webkit-tap-highlight-color: transparent !important; 
+      <style>{`
+        * {
+          box-sizing: border-box;
         }
 
-        .app-shell { background-color: #121212; min-height: 100vh; padding: 24px 0; font-family: system-ui, -apple-system, sans-serif; color: #ffffff; }
-        .page-container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
-        
-        .page-header { text-align: center; margin-bottom: 24px; }
-        .eyebrow { color: #f87171; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
-        .page-header h1 { color: #ffffff; font-size: 24px; font-weight: 900; margin-bottom: 12px; }
-        .page-header p { color: #e5e7eb; font-size: 14px; margin: 6px 0; font-weight: 600;}
-        
-        .guide-card { background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
-        .guide-heading { display: flex; flex-direction: column; margin-bottom: 12px; border-bottom: 1px solid #2c2c2e; padding-bottom: 16px; }
-        .guide-heading span { color: #f87171; font-size: 16px; font-weight: 800; text-transform: uppercase; }
-        .guide-heading small { color: #d1d5db; font-size: 13px; margin-top: 4px; font-weight: 500; }
-        
-        .section-list { display: flex; flex-direction: column; }
-        .guide-section { border-bottom: 1px solid #2c2c2e; padding: 8px 0; }
-        .guide-section:last-child { border-bottom: none; padding-bottom: 0; }
-        
-        .section-button { 
-          display: flex !important; 
-          align-items: center !important; 
-          width: 100% !important; 
-          padding: 14px 0 !important; 
-          cursor: pointer !important; 
-          text-align: left !important; 
-          color: #000000 !important; 
-          background: transparent !important; 
-          background-color: transparent !important; 
+        body {
+          margin: 0;
+          padding: 0;
+          background: #101010;
+          color: #fff;
+          font-family: system-ui, -apple-system, sans-serif;
         }
-        .section-button:active { opacity: 0.7; }
-        
-        .section-number { background-color: rgba(248, 113, 113, 0.15) !important; color: #f87171; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 14px; font-size: 16px; border: 1px solid rgba(248, 113, 113, 0.3); }
-        .section-text { flex: 1; display: flex; flex-direction: column; padding-right: 12px; }
-        
-        .section-text strong { color: #000000 !important; font-size: 17px !important; margin-bottom: 6px !important; font-weight: 900 !important; line-height: 1.4 !important; }
-        .section-text small { color: #000000 !important; font-size: 14px !important; font-weight: 800 !important; }
-        
-        .section-icon { color: #f87171; font-size: 15px; transition: transform 0.3s ease; font-weight: bold; }
 
-        .video-section { margin-top: 24px; background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
-        .video-label { color: #f87171; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; background: rgba(248, 113, 113, 0.15); padding: 4px 10px; border-radius: 6px;}
-        .video-header h2 { color: #ffffff; font-size: 18px; margin: 12px 0 16px 0; font-weight: 800; line-height: 1.4; }
-        .video-wrap video { width: 100%; border-radius: 12px; border: 1px solid #2c2c2e; outline: none; background: #0a0a0a; }
-        .video-note { color: #d1d5db; font-size: 13px; margin-top: 14px; text-align: center; line-height: 1.5; font-weight: 500; }
-        `,
-        }}
-      />
+        .app-shell {
+          min-height: 100vh;
+          background: #101010;
+          color: #fff;
+          padding: 42px 0 70px;
+        }
+
+        .page-container {
+          max-width: 520px;
+          margin: 0 auto;
+          padding: 0 18px;
+        }
+
+        /* HEADER */
+
+        .page-header {
+          text-align: center;
+          margin-bottom: 32px;
+        }
+
+        .eyebrow {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: #f8717114;
+          border: 1px solid #f8717125;
+          color: #f87171;
+          padding: 8px 17px;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 1.5px;
+          margin-bottom: 20px;
+        }
+
+        .page-header h1 {
+          color: #fff;
+          font-size: clamp(22px, 5vw, 28px);
+          font-weight: 900;
+          line-height: 1.35;
+          margin: 0 0 20px;
+          letter-spacing: -0.5px;
+        }
+
+        .header-info {
+          background: #1b1b1d;
+          border: 1px solid #2b2b2e;
+          border-radius: 16px;
+          padding: 16px;
+        }
+
+        .header-info p {
+          color: #c9c9cf;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.7;
+          margin: 4px 0;
+        }
+
+        .header-info strong {
+          color: #fff;
+          font-weight: 800;
+        }
+
+        /* MAIN CARD */
+
+        .guide-card {
+          background: #1b1b1d;
+          border: 1px solid #303034;
+          border-radius: 22px;
+          padding: 22px;
+          box-shadow: 0 12px 45px #0003;
+        }
+
+        .guide-heading {
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+          padding-bottom: 19px;
+          margin-bottom: 15px;
+          border-bottom: 1px solid #303034;
+        }
+
+        .guide-heading span {
+          color: #f87171;
+          font-size: 17px;
+          font-weight: 900;
+        }
+
+        .guide-heading small {
+          color: #a5a5af;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 1.5;
+        }
+
+        /* BUTTON LIST */
+
+        .section-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .guide-section {
+          width: 100%;
+        }
+
+        .section-button {
+          appearance: none;
+          -webkit-appearance: none;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          min-height: 88px;
+          padding: 16px;
+          border: 1px solid #35353a;
+          border-radius: 16px;
+          background: #242427;
+          color: #fff;
+          text-align: left;
+          cursor: pointer;
+          transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
+          font-family: inherit;
+        }
+
+        .section-button:hover {
+          background: #2b2b30;
+          border-color: #f8717180;
+          transform: translateY(-2px);
+        }
+
+        .section-button:active {
+          transform: scale(0.99);
+        }
+
+        .section-button:focus-visible,
+        .sub-option:focus-visible {
+          outline: 2px solid #f87171;
+          outline-offset: 3px;
+        }
+
+        .section-number {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 43px;
+          height: 43px;
+          margin-right: 15px;
+          border-radius: 13px;
+          border: 1px solid #f8717140;
+          background: #f8717114;
+          color: #f87171;
+          font-size: 17px;
+          font-weight: 900;
+        }
+
+        .section-text {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          gap: 7px;
+          min-width: 0;
+        }
+
+        .section-text strong {
+          color: #fff;
+          font-size: 15px;
+          font-weight: 800;
+          line-height: 1.45;
+        }
+
+        .section-text small {
+          color: #a5a5af;
+          font-size: 12px;
+          font-weight: 600;
+        }
+
+        .section-icon {
+          flex-shrink: 0;
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 10px;
+          border-radius: 50%;
+          background: #f8717117;
+          color: #f87171;
+          font-size: 17px;
+          font-weight: 800;
+        }
+
+        .section-icon svg {
+          width: 16px;
+          height: 16px;
+        }
+
+        /* TWO-COLUMN DROPDOWN */
+
+        .section-options {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          padding: 14px 0 4px;
+        }
+
+        .sub-option {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          width: 100%;
+          min-height: 65px;
+          padding: 10px;
+          border-radius: 12px;
+          border: 1px solid #35353a;
+          background: #28282b;
+          color: #fff;
+          cursor: pointer;
+          text-align: left;
+          font-family: inherit;
+          transition: background 0.2s, border-color 0.2s;
+        }
+
+        .sub-option:hover {
+          background: #323236;
+          border-color: #f87171;
+        }
+
+        .sub-play {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: #f871711c;
+          color: #f87171;
+          font-size: 11px;
+        }
+
+        .sub-title {
+          flex: 1;
+          min-width: 0;
+          color: #fff;
+          font-weight: 700;
+          font-size: 12px;
+          overflow-wrap: anywhere;
+        }
+
+        .sub-arrow {
+          flex-shrink: 0;
+          color: #f87171;
+          font-size: 20px;
+        }
+
+        /* VIDEO PLAYER */
+
+        .video-section {
+          margin-top: 24px;
+          background: #1b1b1d;
+          border: 1px solid #303034;
+          border-radius: 22px;
+          padding: 20px;
+          box-shadow: 0 12px 40px #0004;
+          scroll-margin-top: 20px;
+        }
+
+        .video-label {
+          display: inline-block;
+          background: #f8717115;
+          border-radius: 6px;
+          color: #f87171;
+          padding: 6px 10px;
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 1px;
+        }
+
+        .video-header h2 {
+          margin: 15px 0;
+          font-size: 18px;
+          font-weight: 800;
+          line-height: 1.5;
+          color: #fff;
+        }
+
+        .video-wrap video {
+          display: block;
+          width: 100%;
+          height: auto;
+          max-height: 75vh;
+          border-radius: 12px;
+          background: #050505;
+          border: 1px solid #303034;
+          outline: none;
+        }
+
+        .video-note {
+          margin: 15px 0 0;
+          text-align: center;
+          color: #a5a5af;
+          font-size: 12px;
+          line-height: 1.7;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 480px) {
+          .app-shell {
+            padding-top: 32px;
+          }
+
+          .page-container {
+            padding: 0 14px;
+          }
+
+          .guide-card {
+            padding: 16px;
+          }
+
+          .section-button {
+            padding: 13px 11px;
+          }
+
+          .section-number {
+            width: 38px;
+            height: 38px;
+            margin-right: 11px;
+          }
+
+          .section-text strong {
+            font-size: 14px;
+          }
+
+          .section-icon {
+            width: 32px;
+            height: 32px;
+            margin-left: 7px;
+          }
+
+          .sub-option {
+            padding: 8px;
+            gap: 5px;
+          }
+
+          .sub-title {
+            font-size: 11px;
+          }
+        }
+      `}</style>
 
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">Зөвлөгөө БИЧЛЭГ</div>
+          <div className="eyebrow">ЗӨВЛӨГӨӨ БИЧЛЭГ</div>
+
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
-          <p>Захиалга өгөх дугаар: 7277-0044 8810-9133</p>
-          <p>САЙТААР ЗАХИАЛГА ӨГӨХ hotmongolia.shop</p>
+
+          <div className="header-info">
+            <p>
+              Захиалга өгөх дугаар: <strong>7277-0044</strong>{" "}
+              <strong>8810-9133</strong>
+            </p>
+
+            <p>
+              САЙТААР ЗАХИАЛГА ӨГӨХ <strong>hotmongolia.shop</strong>
+            </p>
+          </div>
         </header>
 
         <section className="guide-card">
           <div className="guide-heading">
-            <span>Зөвлөгөө +1</span>
-            <small>Бичлэг үзэх бол доорх дээр дарна уу</small>
+            <span>ЗӨВЛӨГӨӨ +1</span>
+            <small>Бичлэг үзэх бол доорх товчлуур дээр дарна уу</small>
           </div>
 
           <div className="section-list">
             {sections.map((section, index) => {
               const isLink = !!section.link;
+              const hasDropdown = !!section.items;
+              const isOpen = openSection === index;
 
               return (
                 <div key={section.title} className="guide-section">
@@ -300,16 +609,63 @@ export default function SoftDarkVideoPage() {
                     type="button"
                     className="section-button"
                     onClick={() => handleSection(section, index)}
+                    aria-expanded={hasDropdown ? isOpen : undefined}
                   >
                     <span className="section-number">{index + 1}</span>
+
                     <span className="section-text">
                       <strong>{section.title}</strong>
+
                       <small>
-                        {isLink ? "HOT MONGOLIA Page" : "Бичлэг үзэх"}
+                        {isLink
+                          ? "HOT MONGOLIA Page"
+                          : hasDropdown
+                            ? "Бичлэгүүдийг харах"
+                            : "Бичлэг үзэх"}
                       </small>
                     </span>
-                    <span className="section-icon">{isLink ? "↗" : "▶"}</span>
+
+                    <span className="section-icon">
+                      {isLink ? (
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M7 17 17 7" />
+                          <path d="M8 7h9v9" />
+                        </svg>
+                      ) : hasDropdown ? (
+                        <span>{isOpen ? "⌃" : "⌄"}</span>
+                      ) : (
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      )}
+                    </span>
                   </button>
+
+                  {hasDropdown && isOpen && (
+                    <div className="section-options">
+                      {section.items?.map((item, itemIndex) => (
+                        <button
+                          type="button"
+                          key={`${item.src}-${itemIndex}`}
+                          className="sub-option"
+                          onClick={() => playVideo(item)}
+                        >
+                          <span className="sub-play">▶</span>
+
+                          <span className="sub-title">{item.title}</span>
+
+                          <span className="sub-arrow">›</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -319,10 +675,9 @@ export default function SoftDarkVideoPage() {
         {activeVideo && (
           <section ref={videoSectionRef} className="video-section">
             <div className="video-header">
-              <div>
-                <span className="video-label">ОДОО ҮЗЭЖ БАЙНА</span>
-                <h2>{activeVideo.title}</h2>
-              </div>
+              <span className="video-label">ОДОО ҮЗЭЖ БАЙНА</span>
+
+              <h2>{activeVideo.title}</h2>
             </div>
 
             <div className="video-wrap">
