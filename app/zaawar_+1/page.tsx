@@ -209,7 +209,7 @@ export default function SoftDarkVideoPage() {
     );
   }
 
-  // 2. Үндсэн сайт (Текстүүдийг хар бөгөөд тод болгосон)
+  // 2. Үндсэн сайт (Бүх текстүүдийг тод хар болон тод болгосон)
   return (
     <main className="app-shell">
       <style
@@ -263,9 +263,9 @@ export default function SoftDarkVideoPage() {
         .section-number { background-color: rgba(248, 113, 113, 0.15) !important; color: #f87171; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 14px; font-size: 16px; border: 1px solid rgba(248, 113, 113, 0.3); }
         .section-text { flex: 1; display: flex; flex-direction: column; padding-right: 12px; }
         
-        /* Гарчиг текстийг Хар болон маш Тод (Bold) болгосон */
+        /* Гарчиг болон дэд текстүүдийг хоёуланг нь Хар бөгөөд маш Тод (Bold) болгосон */
         .section-text strong { color: #000000 !important; font-size: 17px !important; margin-bottom: 6px !important; font-weight: 900 !important; line-height: 1.4 !important; }
-        .section-text small { color: #d1d5db !important; font-size: 13px !important; font-weight: 600 !important; }
+        .section-text small { color: #000000 !important; font-size: 14px !important; font-weight: 800 !important; }
         
         .section-icon { color: #f87171; font-size: 15px; transition: transform 0.3s ease; font-weight: bold; }
         .section-icon.rotate { transform: rotate(180deg); }
