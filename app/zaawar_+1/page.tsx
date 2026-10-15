@@ -21,9 +21,9 @@ const sections: Section[] = [
   {
     title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө",
     items: [
-      { title: "Зөвлөгөө +1", src: `${VIDEO_BASE}/Hiimel.mp4` },
-      { title: "Зөвлөгөө +2", src: `${VIDEO_BASE}/zovlogoo_2.mp4` },
-      { title: "Зөвлөгөө +3", src: `${VIDEO_BASE}/zovlogoo_3.mp4` },
+      { title: "Зөвлөгөө +1", src: `${VIDEO_BASE}/+1.mp4` },
+      { title: "Зөвлөгөө +2", src: `${VIDEO_BASE}/+2.mp4` },
+      { title: "Зөвлөгөө +3", src: `${VIDEO_BASE}/+3.mp4` },
     ],
   },
   {
