@@ -211,22 +211,24 @@ export default function SoftDarkVideoPage() {
   // 2. Үндсэн сайт
   return (
     <main className="app-shell">
-      {/* Утсан дээр цагаан болоод байгааг зассан CSS */}
+      {/* Бүх цагаан дэвсгэр гарах асуудлыг бүрэн шийдсэн CSS */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
         body { background-color: #121212 !important; color: #e5e7eb !important; margin: 0; padding: 0; }
         
-        /* Бүх товчлуурын үндсэн цагаан өнгийг iPhone дээр хүчээр устгах */
+        /* Бүх товчлуурын background-ийг iPhone, Safari дээр хүчээр цэвэрлэх */
         button { 
           appearance: none !important; 
           -webkit-appearance: none !important; 
+          -moz-appearance: none !important;
+          background: transparent !important; 
           background-color: transparent !important; 
           border: none !important; 
           box-shadow: none !important;
           font-family: inherit; 
-          outline: none; 
-          -webkit-tap-highlight-color: transparent; 
+          outline: none !important; 
+          -webkit-tap-highlight-color: transparent !important; 
         }
 
         .app-shell { background-color: #121212; min-height: 100vh; padding: 24px 0; font-family: system-ui, -apple-system, sans-serif; color: #e5e7eb; }
@@ -246,16 +248,15 @@ export default function SoftDarkVideoPage() {
         .guide-section { border-bottom: 1px solid #2c2c2e; padding: 6px 0; }
         .guide-section:last-child { border-bottom: none; padding-bottom: 0; }
         
-        /* Үндсэн товчлуурыг заавал тунгалаг байлгах !important */
+        /* Үндсэн товчлуурын загвар */
         .section-button { 
-          display: flex; 
-          align-items: center; 
-          width: 100%; 
-          padding: 12px 0; 
-          cursor: pointer; 
-          text-align: left; 
-          transition: opacity 0.2s; 
-          color: inherit; 
+          display: flex !important; 
+          align-items: center !important; 
+          width: 100% !important; 
+          padding: 12px 0 !important; 
+          cursor: pointer !important; 
+          text-align: left !important; 
+          color: inherit !important; 
           background: transparent !important; 
           background-color: transparent !important; 
         }
@@ -271,19 +272,23 @@ export default function SoftDarkVideoPage() {
         
         /* Задардаг цэсний загвар */
         .section-options { display: flex; flex-direction: column; padding: 12px; background: #151515; border-radius: 16px; margin-top: 8px; margin-bottom: 8px; gap: 8px; border: 1px solid #2c2c2e; }
+        
+        /* Сонголт бүрийн товчлуур (Үүнд цагаан дэвсгэр орохоос сэргийлсэн) */
         .sub-option { 
-          display: flex; 
-          align-items: center; 
+          display: flex !important; 
+          align-items: center !important; 
           background-color: #1c1c1e !important; 
+          background: #1c1c1e !important; 
           border: 1px solid transparent !important; 
-          padding: 14px 16px; 
-          border-radius: 12px; 
-          cursor: pointer; 
-          transition: all 0.2s; 
-          text-align: left; 
+          padding: 14px 16px !important; 
+          border-radius: 12px !important; 
+          cursor: pointer !important; 
+          text-align: left !important; 
+          width: 100% !important;
         }
-        .sub-option:hover { background-color: #262629 !important; border-color: rgba(248, 113, 113, 0.3) !important; }
+        .sub-option:active { background-color: #262629 !important; }
         .sub-option.active { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.08) !important; }
+        
         .sub-play { color: #f87171; margin-right: 14px; font-size: 12px; }
         .sub-title { flex: 1; font-size: 14px; font-weight: 500; color: #e5e7eb; }
         .sub-action { font-size: 12px; color: #f87171; font-weight: 600; opacity: 0.9; }
@@ -322,7 +327,6 @@ export default function SoftDarkVideoPage() {
                   key={section.title}
                   className={`guide-section ${isOpen ? "open" : ""}`}
                 >
-                  {/* Үндсэн товчлуур */}
                   <button
                     type="button"
                     className="section-button"
@@ -345,7 +349,6 @@ export default function SoftDarkVideoPage() {
                     </span>
                   </button>
 
-                  {/* Задардаг цэсний жагсаалт */}
                   {hasDropdown && isOpen && (
                     <div className="section-options">
                       {section.items!.map((item) => {
