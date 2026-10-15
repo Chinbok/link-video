@@ -210,6 +210,133 @@ export default function NdAvtoDildoPage() {
 
   return (
     <main className="app-shell">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        body { background-color: #121212 !important; color: #ffffff !important; margin: 0; padding: 0; }
+        
+        button { 
+          appearance: none !important; 
+          -webkit-appearance: none !important; 
+          -moz-appearance: none !important;
+          background: transparent !important; 
+          background-color: transparent !important; 
+          border: none !important; 
+          box-shadow: none !important;
+          font-family: inherit; 
+          outline: none !important; 
+          -webkit-tap-highlight-color: transparent !important; 
+        }
+
+        .app-shell { background-color: #121212; min-height: 100vh; padding: 24px 0; font-family: system-ui, -apple-system, sans-serif; color: #ffffff; }
+        .page-container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
+        
+        .page-header { text-align: center; margin-bottom: 24px; }
+        .eyebrow { color: #f87171; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+        .page-header h1 { color: #ffffff; font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+        .page-header p { color: #e5e7eb; font-size: 14px; margin: 6px 0; font-weight: 600;}
+        
+        .guide-card { background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+        .guide-heading { display: flex; flex-direction: column; margin-bottom: 12px; border-bottom: 1px solid #2c2c2e; padding-bottom: 16px; }
+        .guide-heading span { color: #f87171; font-size: 16px; font-weight: 800; text-transform: uppercase; }
+        .guide-heading small { color: #d1d5db; font-size: 13px; margin-top: 4px; font-weight: 500; }
+        
+        .section-list { display: flex; flex-direction: column; }
+        .guide-section { border-bottom: 1px solid #2c2c2e; padding: 8px 0; }
+        .guide-section:last-child { border-bottom: none; padding-bottom: 0; }
+        
+        .section-button { 
+          display: flex !important; 
+          align-items: center !important; 
+          width: 100% !important; 
+          padding: 14px 0 !important; 
+          cursor: pointer !important; 
+          text-align: left !important; 
+          color: #000000 !important; 
+          background: transparent !important; 
+          background-color: transparent !important; 
+        }
+        .section-button:active { opacity: 0.7; }
+        
+        .section-number { background-color: rgba(248, 113, 113, 0.15) !important; color: #f87171; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 14px; font-size: 16px; border: 1px solid rgba(248, 113, 113, 0.3); }
+        .section-text { flex: 1; display: flex; flex-direction: column; padding-right: 12px; }
+        
+        .section-text strong { color: #000000 !important; font-size: 17px !important; margin-bottom: 6px !important; font-weight: 900 !important; line-height: 1.4 !important; }
+        .section-text small { color: #000000 !important; font-size: 14px !important; font-weight: 800 !important; }
+        
+        .section-icon { color: #f87171; font-size: 15px; transition: transform 0.3s ease; font-weight: bold; }
+        .section-icon.rotate { transform: rotate(180deg); }
+        
+        /* Задардаг дэд цэсүүд (Зурган дээрхтэй ижил 2 баганатай загвар) */
+        .section-options { 
+          display: grid !important; 
+          grid-template-columns: repeat(2, 1fr) !important; 
+          gap: 10px !important; 
+          padding: 12px 0 0 0 !important; 
+          background: transparent !important; 
+          border: none !important; 
+          margin-top: 4px !important; 
+        }
+        
+        .sub-option { 
+          display: flex !important; 
+          align-items: center !important; 
+          justify-content: space-between !important;
+          background-color: #1c1c1e !important; 
+          border: 1px solid #2c2c2e !important; 
+          padding: 10px !important; 
+          border-radius: 12px !important; 
+          cursor: pointer !important; 
+          text-align: left !important; 
+          width: 100% !important;
+          min-width: 0 !important; 
+        }
+        .sub-option:active { opacity: 0.7 !important; background-color: #262629 !important; }
+        .sub-option.active { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.1) !important; }
+        
+        .sub-play { 
+          color: #f87171 !important; 
+          font-size: 10px !important; 
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 20px !important;
+          height: 20px !important;
+          border: 1px solid rgba(248, 113, 113, 0.5) !important;
+          border-radius: 50% !important;
+          margin-right: 8px !important;
+          flex-shrink: 0 !important;
+        }
+
+        .sub-title { 
+          flex: 1 !important; 
+          font-size: 12px !important; 
+          font-weight: 700 !important; 
+          color: #ffffff !important; 
+          white-space: nowrap !important; 
+          overflow: hidden !important; 
+          text-overflow: ellipsis !important; 
+          text-align: left !important;
+        }
+
+        .sub-action { 
+          color: #ffffff !important; 
+          font-size: 16px !important; 
+          font-weight: 300 !important; 
+          opacity: 0.5 !important;
+          flex-shrink: 0 !important;
+          margin-left: 4px !important;
+        }
+
+        .video-section { margin-top: 24px; background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+        .video-label { color: #f87171; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; background: rgba(248, 113, 113, 0.15); padding: 4px 10px; border-radius: 6px;}
+        .video-header h2 { color: #ffffff; font-size: 18px; margin: 12px 0 16px 0; font-weight: 800; line-height: 1.4; }
+        .video-wrap video { width: 100%; border-radius: 12px; border: 1px solid #2c2c2e; outline: none; background: #0a0a0a; }
+        .video-note { color: #d1d5db; font-size: 13px; margin-top: 14px; text-align: center; line-height: 1.5; font-weight: 500; }
+        `,
+        }}
+      />
+
       <div className="page-container">
         <header className="page-header">
           <div className="eyebrow">ШОДОЙ ВИДЕО</div>
@@ -259,23 +386,24 @@ export default function NdAvtoDildoPage() {
 
                   {hasDropdown && isOpen && (
                     <div className="section-options">
-                      {section.items!.map((item) => (
-                        <button
-                          key={item.src + item.title}
-                          type="button"
-                          className={`sub-option ${
-                            activeVideo?.src === item.src &&
-                            activeVideo?.title === item.title
-                              ? "active"
-                              : ""
-                          }`}
-                          onClick={() => playVideo(item)}
-                        >
-                          <span className="sub-play">▶</span>
-                          <span className="sub-title">{item.title}</span>
-                          <span className="sub-action">Үзэх</span>
-                        </button>
-                      ))}
+                      {section.items!.map((item) => {
+                        const isActive =
+                          activeVideo?.src === item.src &&
+                          activeVideo?.title === item.title;
+
+                        return (
+                          <button
+                            key={item.src + item.title}
+                            type="button"
+                            className={`sub-option ${isActive ? "active" : ""}`}
+                            onClick={() => playVideo(item)}
+                          >
+                            <span className="sub-play">▶</span>
+                            <span className="sub-title">{item.title}</span>
+                            <span className="sub-action">›</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
