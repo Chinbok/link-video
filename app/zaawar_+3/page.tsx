@@ -286,7 +286,7 @@ export default function SoftDarkVideoPage() {
 
         <section className="guide-card">
           <div className="guide-heading">
-            <span>Зөвлөгөө +2</span>
+            <span>Зөвлөгөө +3</span>
             <small>Бичлэг үзэх бол доорх дээр дарна уу</small>
           </div>
 
