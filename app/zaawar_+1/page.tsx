@@ -141,9 +141,9 @@ export default function SoftDarkVideoPage() {
 
           <h2
             style={{
-              color: "#f3f4f6",
+              color: "#ffffff",
               fontSize: "20px",
-              fontWeight: "800",
+              fontWeight: "900",
               marginBottom: "12px",
               letterSpacing: "0.5px",
             }}
@@ -153,10 +153,11 @@ export default function SoftDarkVideoPage() {
 
           <p
             style={{
-              color: "#9ca3af",
+              color: "#d1d5db",
               fontSize: "14px",
               marginBottom: "32px",
               lineHeight: "1.6",
+              fontWeight: "500",
             }}
           >
             Энэхүү хуудас нь насанд хүрэгчдийн контент агуулсан тул та зөвхөн 18
@@ -172,7 +173,7 @@ export default function SoftDarkVideoPage() {
                 color: "#1c1c1e",
                 padding: "14px",
                 borderRadius: "12px",
-                fontWeight: "700",
+                fontWeight: "800",
                 fontSize: "14px",
                 border: "none",
                 cursor: "pointer",
@@ -188,10 +189,10 @@ export default function SoftDarkVideoPage() {
               style={{
                 flex: 1,
                 backgroundColor: "#2c2c2e",
-                color: "#d1d5db",
+                color: "#ffffff",
                 padding: "14px",
                 borderRadius: "12px",
-                fontWeight: "700",
+                fontWeight: "800",
                 fontSize: "14px",
                 border: "none",
                 cursor: "pointer",
@@ -208,16 +209,14 @@ export default function SoftDarkVideoPage() {
     );
   }
 
-  // 2. Үндсэн сайт
+  // 2. Үндсэн сайт (Текстүүдийг бүгдийг нь тунгалаг цагаан болгосон)
   return (
     <main className="app-shell">
-      {/* Бүх цагаан дэвсгэр гарах асуудлыг бүрэн шийдсэн CSS */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        body { background-color: #121212 !important; color: #e5e7eb !important; margin: 0; padding: 0; }
+        body { background-color: #121212 !important; color: #ffffff !important; margin: 0; padding: 0; }
         
-        /* Бүх товчлуурын background-ийг iPhone, Safari дээр хүчээр цэвэрлэх */
         button { 
           appearance: none !important; 
           -webkit-appearance: none !important; 
@@ -231,55 +230,55 @@ export default function SoftDarkVideoPage() {
           -webkit-tap-highlight-color: transparent !important; 
         }
 
-        .app-shell { background-color: #121212; min-height: 100vh; padding: 24px 0; font-family: system-ui, -apple-system, sans-serif; color: #e5e7eb; }
+        .app-shell { background-color: #121212; min-height: 100vh; padding: 24px 0; font-family: system-ui, -apple-system, sans-serif; color: #ffffff; }
         .page-container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
         
         .page-header { text-align: center; margin-bottom: 24px; }
-        .eyebrow { color: #f87171; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; opacity: 0.9; }
-        .page-header h1 { color: #f3f4f6; font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-        .page-header p { color: #9ca3af; font-size: 13.5px; margin: 6px 0; font-weight: 400;}
+        .eyebrow { color: #f87171; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+        .page-header h1 { color: #ffffff; font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+        .page-header p { color: #e5e7eb; font-size: 14px; margin: 6px 0; font-weight: 600;}
         
         .guide-card { background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
         .guide-heading { display: flex; flex-direction: column; margin-bottom: 12px; border-bottom: 1px solid #2c2c2e; padding-bottom: 16px; }
-        .guide-heading span { color: #f87171; font-size: 15px; font-weight: 700; text-transform: uppercase; }
-        .guide-heading small { color: #8b8b8d; font-size: 12px; margin-top: 4px; }
+        .guide-heading span { color: #f87171; font-size: 16px; font-weight: 800; text-transform: uppercase; }
+        .guide-heading small { color: #d1d5db; font-size: 13px; margin-top: 4px; font-weight: 500; }
         
         .section-list { display: flex; flex-direction: column; }
-        .guide-section { border-bottom: 1px solid #2c2c2e; padding: 6px 0; }
+        .guide-section { border-bottom: 1px solid #2c2c2e; padding: 8px 0; }
         .guide-section:last-child { border-bottom: none; padding-bottom: 0; }
         
-        /* Үндсэн товчлуурын загвар */
         .section-button { 
           display: flex !important; 
           align-items: center !important; 
           width: 100% !important; 
-          padding: 12px 0 !important; 
+          padding: 14px 0 !important; 
           cursor: pointer !important; 
           text-align: left !important; 
-          color: inherit !important; 
+          color: #ffffff !important; 
           background: transparent !important; 
           background-color: transparent !important; 
         }
         .section-button:active { opacity: 0.7; }
         
-        .section-number { background-color: rgba(248, 113, 113, 0.1) !important; color: #f87171; width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 14px; font-size: 14px; border: 1px solid rgba(248, 113, 113, 0.2); }
+        .section-number { background-color: rgba(248, 113, 113, 0.15) !important; color: #f87171; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 14px; font-size: 16px; border: 1px solid rgba(248, 113, 113, 0.3); }
         .section-text { flex: 1; display: flex; flex-direction: column; padding-right: 12px; }
-        .section-text strong { font-size: 15px; margin-bottom: 4px; color: #f3f4f6; font-weight: 600; line-height: 1.4; }
-        .section-text small { color: #9ca3af; font-size: 12px; font-weight: 400; }
         
-        .section-icon { color: #6b7280; font-size: 14px; transition: transform 0.3s ease; }
-        .section-icon.rotate { transform: rotate(180deg); color: #f87171; }
+        /* Гарчиг текстийг цагаан өнгөтэй болгож тодруулсан */
+        .section-text strong { color: #ffffff !important; font-size: 17px !important; margin-bottom: 6px !important; font-weight: 800 !important; line-height: 1.4 !important; }
+        .section-text small { color: #d1d5db !important; font-size: 13px !important; font-weight: 600 !important; }
         
-        /* Задардаг цэсний загвар */
+        .section-icon { color: #f87171; font-size: 15px; transition: transform 0.3s ease; font-weight: bold; }
+        .section-icon.rotate { transform: rotate(180deg); }
+        
+        /* Задардаг дэд цэсүүд */
         .section-options { display: flex; flex-direction: column; padding: 12px; background: #151515; border-radius: 16px; margin-top: 8px; margin-bottom: 8px; gap: 8px; border: 1px solid #2c2c2e; }
         
-        /* Сонголт бүрийн товчлуур (Үүнд цагаан дэвсгэр орохоос сэргийлсэн) */
         .sub-option { 
           display: flex !important; 
           align-items: center !important; 
           background-color: #1c1c1e !important; 
           background: #1c1c1e !important; 
-          border: 1px solid transparent !important; 
+          border: 1px solid #2c2c2e !important; 
           padding: 14px 16px !important; 
           border-radius: 12px !important; 
           cursor: pointer !important; 
@@ -287,17 +286,17 @@ export default function SoftDarkVideoPage() {
           width: 100% !important;
         }
         .sub-option:active { background-color: #262629 !important; }
-        .sub-option.active { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.08) !important; }
+        .sub-option.active { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.1) !important; }
         
-        .sub-play { color: #f87171; margin-right: 14px; font-size: 12px; }
-        .sub-title { flex: 1; font-size: 14px; font-weight: 500; color: #e5e7eb; }
-        .sub-action { font-size: 12px; color: #f87171; font-weight: 600; opacity: 0.9; }
+        .sub-play { color: #f87171; margin-right: 14px; font-size: 13px; font-weight: bold; }
+        .sub-title { flex: 1; font-size: 15px; font-weight: 700; color: #ffffff; }
+        .sub-action { font-size: 13px; color: #f87171; font-weight: 800; }
 
         .video-section { margin-top: 24px; background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
-        .video-label { color: #f87171; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: rgba(248, 113, 113, 0.1); padding: 4px 8px; border-radius: 6px;}
-        .video-header h2 { color: #f3f4f6; font-size: 16px; margin: 12px 0 16px 0; font-weight: 600; line-height: 1.4; }
+        .video-label { color: #f87171; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; background: rgba(248, 113, 113, 0.15); padding: 4px 10px; border-radius: 6px;}
+        .video-header h2 { color: #ffffff; font-size: 18px; margin: 12px 0 16px 0; font-weight: 800; line-height: 1.4; }
         .video-wrap video { width: 100%; border-radius: 12px; border: 1px solid #2c2c2e; outline: none; background: #0a0a0a; }
-        .video-note { color: #8b8b8d; font-size: 12px; margin-top: 14px; text-align: center; line-height: 1.5; }
+        .video-note { color: #d1d5db; font-size: 13px; margin-top: 14px; text-align: center; line-height: 1.5; font-weight: 500; }
         `,
         }}
       />
@@ -338,7 +337,7 @@ export default function SoftDarkVideoPage() {
                       <strong>{section.title}</strong>
                       <small>
                         {isLink
-                          ? "Эрчүүдийн дэлгүүрийн Page"
+                          ? "HOT MONGOLIA Page"
                           : hasDropdown
                             ? "Сонголтуудыг харах"
                             : "Бичлэг үзэх"}
