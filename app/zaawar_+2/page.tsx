@@ -19,10 +19,10 @@ const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 // 1 дүгээр товчлуур шууд видео руу үсэрнэ, 2 дугаар товчлуур линк рүү орно
 const sections: Section[] = [
   {
-    title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө +3",
+    title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө +2",
     video: {
-      title: "Зөвлөгөө +3",
-      src: `${VIDEO_BASE}/+3.mp4`,
+      title: "Зөвлөгөө +2",
+      src: `${VIDEO_BASE}/+2.mp4`,
     },
   },
   {
@@ -286,7 +286,7 @@ export default function SoftDarkVideoPage() {
 
         <section className="guide-card">
           <div className="guide-heading">
-            <span>Зөвлөгөө +3</span>
+            <span>Зөвлөгөө +2</span>
             <small>Бичлэг үзэх бол доорх дээр дарна уу</small>
           </div>
 
