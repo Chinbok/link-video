@@ -19,7 +19,7 @@ const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 // 1 дүгээр товчлуур шууд видео руу үсэрнэ, 2 дугаар товчлуур линк рүү орно
 const sections: Section[] = [
   {
-    title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө",
+    title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө +1",
     video: {
       title: "Зөвлөгөө +1",
       src: `${VIDEO_BASE}/+1.mp4`,
