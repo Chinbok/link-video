@@ -16,15 +16,14 @@ type Section = {
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
-// Нийт 2 товчлуур
+// 1 дүгээр товчлуур шууд видео руу үсэрнэ, 2 дугаар товчлуур линк рүү орно
 const sections: Section[] = [
   {
     title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө",
-    items: [
-      { title: "Зөвлөгөө +1", src: `${VIDEO_BASE}/+1.mp4` },
-      { title: "Зөвлөгөө +2", src: `${VIDEO_BASE}/+2.mp4` },
-      { title: "Зөвлөгөө +3", src: `${VIDEO_BASE}/+3.mp4` },
-    ],
+    video: {
+      title: "Зөвлөгөө +1",
+      src: `${VIDEO_BASE}/+1.mp4`,
+    },
   },
   {
     title: "Захиалга өгөх",
@@ -65,13 +64,13 @@ export default function SoftDarkVideoPage() {
       return;
     }
 
-    if (section.items) {
-      setOpenSection(openSection === index ? null : index);
+    if (section.video) {
+      playVideo(section.video);
       return;
     }
 
-    if (section.video) {
-      playVideo(section.video);
+    if (section.items) {
+      setOpenSection(openSection === index ? null : index);
       return;
     }
   };
@@ -209,7 +208,7 @@ export default function SoftDarkVideoPage() {
     );
   }
 
-  // 2. Үндсэн сайт (Бүх текстүүдийг тод хар болон тод болгосон)
+  // 2. Үндсэн сайт
   return (
     <main className="app-shell">
       <style
@@ -263,34 +262,10 @@ export default function SoftDarkVideoPage() {
         .section-number { background-color: rgba(248, 113, 113, 0.15) !important; color: #f87171; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 14px; font-size: 16px; border: 1px solid rgba(248, 113, 113, 0.3); }
         .section-text { flex: 1; display: flex; flex-direction: column; padding-right: 12px; }
         
-        /* Гарчиг болон дэд текстүүдийг хоёуланг нь Хар бөгөөд маш Тод (Bold) болгосон */
         .section-text strong { color: #000000 !important; font-size: 17px !important; margin-bottom: 6px !important; font-weight: 900 !important; line-height: 1.4 !important; }
         .section-text small { color: #000000 !important; font-size: 14px !important; font-weight: 800 !important; }
         
         .section-icon { color: #f87171; font-size: 15px; transition: transform 0.3s ease; font-weight: bold; }
-        .section-icon.rotate { transform: rotate(180deg); }
-        
-        /* Задардаг дэд цэсүүд */
-        .section-options { display: flex; flex-direction: column; padding: 12px; background: #151515; border-radius: 16px; margin-top: 8px; margin-bottom: 8px; gap: 8px; border: 1px solid #2c2c2e; }
-        
-        .sub-option { 
-          display: flex !important; 
-          align-items: center !important; 
-          background-color: #1c1c1e !important; 
-          background: #1c1c1e !important; 
-          border: 1px solid #2c2c2e !important; 
-          padding: 14px 16px !important; 
-          border-radius: 12px !important; 
-          cursor: pointer !important; 
-          text-align: left !important; 
-          width: 100% !important;
-        }
-        .sub-option:active { background-color: #262629 !important; }
-        .sub-option.active { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.1) !important; }
-        
-        .sub-play { color: #f87171; margin-right: 14px; font-size: 13px; font-weight: bold; }
-        .sub-title { flex: 1; font-size: 15px; font-weight: 700; color: #ffffff; }
-        .sub-action { font-size: 13px; color: #f87171; font-weight: 800; }
 
         .video-section { margin-top: 24px; background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
         .video-label { color: #f87171; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; background: rgba(248, 113, 113, 0.15); padding: 4px 10px; border-radius: 6px;}
@@ -305,7 +280,7 @@ export default function SoftDarkVideoPage() {
         <header className="page-header">
           <div className="eyebrow">Зөвлөгөө БИЧЛЭГ</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
-          <p>Захиалга өгөх дугаар: 7277-0044 </p>
+          <p>Захиалга өгөх дугаар: 7277-0044</p>
           <p>САЙТААР ЗАХИАЛГА ӨГӨХ hotmongolia.shop</p>
         </header>
 
@@ -317,61 +292,24 @@ export default function SoftDarkVideoPage() {
 
           <div className="section-list">
             {sections.map((section, index) => {
-              const isOpen = openSection === index;
-              const hasDropdown = !!section.items;
               const isLink = !!section.link;
 
               return (
-                <div
-                  key={section.title}
-                  className={`guide-section ${isOpen ? "open" : ""}`}
-                >
+                <div key={section.title} className="guide-section">
                   <button
                     type="button"
                     className="section-button"
                     onClick={() => handleSection(section, index)}
-                    aria-expanded={hasDropdown ? isOpen : undefined}
                   >
                     <span className="section-number">{index + 1}</span>
                     <span className="section-text">
                       <strong>{section.title}</strong>
                       <small>
-                        {isLink
-                          ? "HOT MONGOLIA Page"
-                          : hasDropdown
-                            ? "Сонголтуудыг харах"
-                            : "Бичлэг үзэх"}
+                        {isLink ? "HOT MONGOLIA Page" : "Бичлэг үзэх"}
                       </small>
                     </span>
-                    <span className={`section-icon ${isOpen ? "rotate" : ""}`}>
-                      {isLink ? "↗" : hasDropdown ? "▼" : "▶"}
-                    </span>
+                    <span className="section-icon">{isLink ? "↗" : "▶"}</span>
                   </button>
-
-                  {hasDropdown && isOpen && (
-                    <div className="section-options">
-                      {section.items!.map((item) => {
-                        const isActive =
-                          activeVideo?.src === item.src &&
-                          activeVideo?.title === item.title;
-
-                        return (
-                          <button
-                            key={item.src + item.title}
-                            type="button"
-                            className={`sub-option ${isActive ? "active" : ""}`}
-                            onClick={() => playVideo(item)}
-                          >
-                            <span className="sub-play">▶</span>
-                            <span className="sub-title">{item.title}</span>
-                            <span className="sub-action">
-                              {isActive ? "Үзэж байна" : "Үзэх"}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
                 </div>
               );
             })}
