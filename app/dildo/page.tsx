@@ -81,24 +81,47 @@ const sections: Section[] = [
   },
   {
     title:
-      "Автомат шодойнуудыг үзэх бол энэ дээр дарна уу (4 төрлийн сонголт байгаа)",
+      "Автомат шодойнуудыг үзэх бол энэ дээр дарна уу (39 төрлийн сонголт байгаа)",
     items: [
-      {
-        title: "Автомат шодой ND-157",
-        src: `${VIDEO_BASE}/auto_shodoi_nd157.mp4`,
-      },
-      {
-        title: "Автомат шодой ND-158",
-        src: `${VIDEO_BASE}/auto_shodoi_nd158.mp4`,
-      },
-      {
-        title: "Автомат шодой ND-146",
-        src: `${VIDEO_BASE}/auto_shodoi_nd146.mp4`,
-      },
-      {
-        title: "Автомат шодой ND-154",
-        src: `${VIDEO_BASE}/auto_shodoi_nd154.mp4`,
-      },
+      { title: "Автомат шодой ND-152", src: `${VIDEO_BASE}/A_first ND152.mp4` },
+      { title: "Автомат шодой ND-6", src: `${VIDEO_BASE}/A_ND6.mp4` },
+      { title: "Автомат шодой ND-8", src: `${VIDEO_BASE}/a_nd8.mp4` },
+      { title: "Автомат шодой ND-12", src: `${VIDEO_BASE}/a_ND12.mp4` },
+      { title: "Автомат шодой ND-24", src: `${VIDEO_BASE}/a_ND24.mp4` },
+      { title: "Автомат шодой ND-65", src: `${VIDEO_BASE}/a_ND65.mp4` },
+      { title: "Автомат шодой ND-66", src: `${VIDEO_BASE}/a_ND66.mp4` },
+      { title: "Автомат шодой ND-67", src: `${VIDEO_BASE}/a_nd67.mp4` },
+      { title: "Автомат шодой ND-69", src: `${VIDEO_BASE}/A_ND69.mp4` },
+      { title: "Автомат шодой ND-70", src: `${VIDEO_BASE}/A_ND70.mp4` },
+      { title: "Автомат шодой ND-71", src: `${VIDEO_BASE}/A_ND71.mp4` },
+      { title: "Автомат шодой ND-99", src: `${VIDEO_BASE}/A_ND99.mp4` },
+      { title: "Автомат шодой ND-101", src: `${VIDEO_BASE}/a_ND101.mp4` },
+      { title: "Автомат шодой ND-105", src: `${VIDEO_BASE}/A_ND105.mp4` },
+      { title: "Автомат шодой ND-123", src: `${VIDEO_BASE}/a_ND123.mp4` },
+      { title: "Автомат шодой ND-126", src: `${VIDEO_BASE}/a_nd126.mp4` },
+      { title: "Автомат шодой ND-140", src: `${VIDEO_BASE}/a_nd140.mp4` },
+      { title: "Автомат шодой ND-143", src: `${VIDEO_BASE}/a_ND143.mp4` },
+      { title: "Автомат шодой ND-144", src: `${VIDEO_BASE}/A_ND144.mp4` },
+      { title: "Автомат шодой ND-145", src: `${VIDEO_BASE}/a_ND145.mp4` },
+      { title: "Автомат шодой ND-146", src: `${VIDEO_BASE}/a_ND146.mp4` },
+      { title: "Автомат шодой ND-147", src: `${VIDEO_BASE}/A_ND147.mp4` },
+      { title: "Автомат шодой ND-149", src: `${VIDEO_BASE}/A_ND149.mp4` },
+      { title: "Автомат шодой ND-150", src: `${VIDEO_BASE}/A_ND150.mp4` },
+      { title: "Автомат шодой ND-151", src: `${VIDEO_BASE}/A_ND151.mp4` },
+      { title: "Автомат шодой ND-153", src: `${VIDEO_BASE}/a_ND153.mp4` },
+      { title: "Автомат шодой ND-154", src: `${VIDEO_BASE}/a_ND154.mp4` },
+      { title: "Автомат шодой ND-155", src: `${VIDEO_BASE}/A_ND155.mp4` },
+      { title: "Автомат шодой ND-156", src: `${VIDEO_BASE}/A_ND156.mp4` },
+      { title: "Автомат шодой ND-157", src: `${VIDEO_BASE}/a_nd157.mp4` },
+      { title: "Автомат шодой ND-158", src: `${VIDEO_BASE}/A_ND158.mp4` },
+      { title: "Автомат шодой ND-159", src: `${VIDEO_BASE}/a_ND159.mp4` },
+      { title: "Автомат шодой ND-161", src: `${VIDEO_BASE}/A_ND161.mp4` },
+      { title: "Автомат шодой ND-162", src: `${VIDEO_BASE}/A_ND162.mp4` },
+      { title: "Автомат шодой ND-163", src: `${VIDEO_BASE}/A_ND163.mp4` },
+      { title: "Автомат шодой ND-164", src: `${VIDEO_BASE}/A_ND164.mp4` },
+      { title: "Автомат шодой ND-165", src: `${VIDEO_BASE}/A_ND165.mp4` },
+      { title: "Автомат шодой VIB-88", src: `${VIDEO_BASE}/a_VIB_88.mp4` },
+      { title: "Автомат шодой VIB-97", src: `${VIDEO_BASE}/A_Vib97.mp4` },
     ],
   },
   {
@@ -146,6 +169,7 @@ const sections: Section[] = [
 ];
 
 export default function NdAvtoDildoPage() {
+  const [isVerified, setIsVerified] = useState<boolean>(false);
   const [openSection, setOpenSection] = useState<number | null>(null);
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
 
@@ -182,11 +206,236 @@ export default function NdAvtoDildoPage() {
       return;
     }
 
-    setOpenSection(openSection === index ? null : index);
+    if (section.items) {
+      setOpenSection(openSection === index ? null : index);
+      return;
+    }
   };
+
+  // 1. 18+ баталгаажуулах цонх
+  if (!isVerified) {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          backgroundColor: "#121212",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "20px",
+          zIndex: 9999,
+          fontFamily: "sans-serif",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#1c1c1e",
+            border: "1px solid #2c2c2e",
+            padding: "40px 24px",
+            borderRadius: "20px",
+            textAlign: "center",
+            maxWidth: "400px",
+            width: "100%",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.4)",
+          }}
+        >
+          <div style={{ marginBottom: "24px" }}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "60px",
+                height: "60px",
+                borderRadius: "50%",
+                border: "2px solid #f87171",
+                position: "relative",
+                backgroundColor: "rgba(248, 113, 113, 0.05)",
+              }}
+            >
+              <span
+                style={{
+                  color: "#f87171",
+                  fontSize: "24px",
+                  fontWeight: "800",
+                }}
+              >
+                18
+              </span>
+              <div
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "2px",
+                  backgroundColor: "#f87171",
+                  transform: "rotate(-45deg)",
+                }}
+              ></div>
+            </div>
+          </div>
+
+          <h2
+            style={{
+              color: "#ffffff",
+              fontSize: "20px",
+              fontWeight: "900",
+              marginBottom: "12px",
+              letterSpacing: "0.5px",
+            }}
+          >
+            НАСАНД ХҮРЭГЧДЭД ЗОРИУЛАВ
+          </h2>
+
+          <p
+            style={{
+              color: "#d1d5db",
+              fontSize: "14px",
+              marginBottom: "32px",
+              lineHeight: "1.6",
+              fontWeight: "500",
+            }}
+          >
+            Энэхүү хуудас нь насанд хүрэгчдийн контент агуулсан тул та зөвхөн 18
+            буюу түүнээс дээш настай бол нэвтрэнэ үү.
+          </p>
+
+          <div style={{ display: "flex", gap: "12px", width: "100%" }}>
+            <button
+              onClick={() => setIsVerified(true)}
+              style={{
+                flex: 1,
+                backgroundColor: "#f87171",
+                color: "#1c1c1e",
+                padding: "14px",
+                borderRadius: "12px",
+                fontWeight: "800",
+                fontSize: "14px",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                WebkitAppearance: "none",
+                appearance: "none",
+              }}
+            >
+              ТИЙМ, БИ 18+
+            </button>
+            <button
+              onClick={() => (window.location.href = "https://google.com")}
+              style={{
+                flex: 1,
+                backgroundColor: "#2c2c2e",
+                color: "#ffffff",
+                padding: "14px",
+                borderRadius: "12px",
+                fontWeight: "800",
+                fontSize: "14px",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                WebkitAppearance: "none",
+                appearance: "none",
+              }}
+            >
+              ҮГҮЙ
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main className="app-shell">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        body { background-color: #121212 !important; color: #ffffff !important; margin: 0; padding: 0; }
+        
+        button { 
+          appearance: none !important; 
+          -webkit-appearance: none !important; 
+          -moz-appearance: none !important;
+          background: transparent !important; 
+          background-color: transparent !important; 
+          border: none !important; 
+          box-shadow: none !important;
+          font-family: inherit; 
+          outline: none !important; 
+          -webkit-tap-highlight-color: transparent !important; 
+        }
+
+        .app-shell { background-color: #121212; min-height: 100vh; padding: 24px 0; font-family: system-ui, -apple-system, sans-serif; color: #ffffff; }
+        .page-container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
+        
+        .page-header { text-align: center; margin-bottom: 24px; }
+        .eyebrow { color: #f87171; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 8px; text-transform: uppercase; }
+        .page-header h1 { color: #ffffff; font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+        .page-header p { color: #e5e7eb; font-size: 14px; margin: 6px 0; font-weight: 600;}
+        
+        .guide-card { background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+        .guide-heading { display: flex; flex-direction: column; margin-bottom: 12px; border-bottom: 1px solid #2c2c2e; padding-bottom: 16px; }
+        .guide-heading span { color: #f87171; font-size: 16px; font-weight: 800; text-transform: uppercase; }
+        .guide-heading small { color: #d1d5db; font-size: 13px; margin-top: 4px; font-weight: 500; }
+        
+        .section-list { display: flex; flex-direction: column; }
+        .guide-section { border-bottom: 1px solid #2c2c2e; padding: 8px 0; }
+        .guide-section:last-child { border-bottom: none; padding-bottom: 0; }
+        
+        .section-button { 
+          display: flex !important; 
+          align-items: center !important; 
+          width: 100% !important; 
+          padding: 14px 0 !important; 
+          cursor: pointer !important; 
+          text-align: left !important; 
+          color: #000000 !important; 
+          background: transparent !important; 
+          background-color: transparent !important; 
+        }
+        .section-button:active { opacity: 0.7; }
+        
+        .section-number { background-color: rgba(248, 113, 113, 0.15) !important; color: #f87171; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-right: 14px; font-size: 16px; border: 1px solid rgba(248, 113, 113, 0.3); }
+        .section-text { flex: 1; display: flex; flex-direction: column; padding-right: 12px; }
+        
+        /* Гарчиг болон дэд текстүүдийг хоёуланг нь Хар бөгөөд маш Тод (Bold) болгосон */
+        .section-text strong { color: #000000 !important; font-size: 17px !important; margin-bottom: 6px !important; font-weight: 900 !important; line-height: 1.4 !important; }
+        .section-text small { color: #000000 !important; font-size: 14px !important; font-weight: 800 !important; }
+        
+        .section-icon { color: #f87171; font-size: 15px; transition: transform 0.3s ease; font-weight: bold; }
+        .section-icon.rotate { transform: rotate(180deg); }
+        
+        /* Задардаг дэд цэсүүд */
+        .section-options { display: flex; flex-direction: column; padding: 12px; background: #151515; border-radius: 16px; margin-top: 8px; margin-bottom: 8px; gap: 8px; border: 1px solid #2c2c2e; }
+        
+        .sub-option { 
+          display: flex !important; 
+          align-items: center !important; 
+          background-color: #1c1c1e !important; 
+          background: #1c1c1e !important; 
+          border: 1px solid #2c2c2e !important; 
+          padding: 14px 16px !important; 
+          border-radius: 12px !important; 
+          cursor: pointer !important; 
+          text-align: left !important; 
+          width: 100% !important;
+        }
+        .sub-option:active { background-color: #262629 !important; }
+        .sub-option.active { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.1) !important; }
+        
+        .sub-play { color: #f87171; margin-right: 14px; font-size: 13px; font-weight: bold; }
+        .sub-title { flex: 1; font-size: 15px; font-weight: 700; color: #ffffff; }
+        .sub-action { font-size: 13px; color: #f87171; font-weight: 800; }
+
+        .video-section { margin-top: 24px; background-color: #1c1c1e; border: 1px solid #2c2c2e; border-radius: 20px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+        .video-label { color: #f87171; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; background: rgba(248, 113, 113, 0.15); padding: 4px 10px; border-radius: 6px;}
+        .video-header h2 { color: #ffffff; font-size: 18px; margin: 12px 0 16px 0; font-weight: 800; line-height: 1.4; }
+        .video-wrap video { width: 100%; border-radius: 12px; border: 1px solid #2c2c2e; outline: none; background: #0a0a0a; }
+        .video-note { color: #d1d5db; font-size: 13px; margin-top: 14px; text-align: center; line-height: 1.5; font-weight: 500; }
+        `,
+        }}
+      />
+
       <div className="page-container">
         <header className="page-header">
           <div className="eyebrow">ШОДОЙ ВИДЕО</div>
@@ -223,36 +472,39 @@ export default function NdAvtoDildoPage() {
                       <strong>{section.title}</strong>
                       <small>
                         {isLink
-                          ? "Эрчүүдийн дэлгүүрийн Page" // Энд өөрчлөлт орсон
+                          ? "Эрчүүдийн дэлгүүрийн Page"
                           : hasDropdown
                             ? "Сонголтуудыг харах"
                             : "Бичлэг үзэх"}
                       </small>
                     </span>
                     <span className={`section-icon ${isOpen ? "rotate" : ""}`}>
-                      {isLink ? "↗" : hasDropdown ? "⌄" : "▶"}
+                      {isLink ? "↗" : hasDropdown ? "▼" : "▶"}
                     </span>
                   </button>
 
                   {hasDropdown && isOpen && (
                     <div className="section-options">
-                      {section.items!.map((item) => (
-                        <button
-                          key={item.src + item.title}
-                          type="button"
-                          className={`sub-option ${
-                            activeVideo?.src === item.src &&
-                            activeVideo?.title === item.title
-                              ? "active"
-                              : ""
-                          }`}
-                          onClick={() => playVideo(item)}
-                        >
-                          <span className="sub-play">▶</span>
-                          <span className="sub-title">{item.title}</span>
-                          <span className="sub-action">Үзэх</span>
-                        </button>
-                      ))}
+                      {section.items!.map((item) => {
+                        const isActive =
+                          activeVideo?.src === item.src &&
+                          activeVideo?.title === item.title;
+
+                        return (
+                          <button
+                            key={item.src + item.title}
+                            type="button"
+                            className={`sub-option ${isActive ? "active" : ""}`}
+                            onClick={() => playVideo(item)}
+                          >
+                            <span className="sub-play">▶</span>
+                            <span className="sub-title">{item.title}</span>
+                            <span className="sub-action">
+                              {isActive ? "Үзэж байна" : "Үзэх"}
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
