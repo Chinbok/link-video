@@ -186,7 +186,6 @@ export default function NdAvtoDildoPage() {
         player.volume = 1;
         player.currentTime = 0;
         player.play().catch((err) => {
-          // ESLint Build Error зассан (хоосон функц байсныг лог хэвлэдэг болгов)
           console.log("Video auto-play interrupted", err);
         });
       }
@@ -215,7 +214,7 @@ export default function NdAvtoDildoPage() {
     <main className="app-shell">
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">ШОДОЙ 1 ВИДЕО</div>
+          <div className="eyebrow">ШОДОЙ ВИДЕО</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
           <p>Захиалга өгөх дугаар: 7272-2002 9910-5590.</p>
           <p>САЙТААР ЗАХИАЛГА ӨГӨХ www.erchuudiindelguur.mn</p>
@@ -268,9 +267,10 @@ export default function NdAvtoDildoPage() {
                         gridTemplateColumns: "repeat(2, 1fr)",
                         gap: "8px",
                         marginTop: "10px",
+                        width: "100%", // Утсан дээр халихаас сэргийлнэ
+                        boxSizing: "border-box", // Доторх хэмжээсийг хайрцагт нь барих
                       }}
                     >
-                      {/* Optional Chaining (?) ашиглаж TypeScript Build Error-г зассан */}
                       {section.items?.map((item) => (
                         <button
                           key={item.src + item.title}
@@ -289,6 +289,8 @@ export default function NdAvtoDildoPage() {
                             width: "100%",
                             textAlign: "left",
                             minWidth: 0,
+                            boxSizing: "border-box", // Чухал: утасны дэлгэцнээс гаргахгүй
+                            padding: "8px 6px", // Утсанд тааруулж хэт том зайг нь багасгасан
                           }}
                         >
                           <div
@@ -323,7 +325,7 @@ export default function NdAvtoDildoPage() {
                                 whiteSpace: "nowrap",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                fontSize: "12px",
+                                fontSize: "11px", // Утсанд 2 багана багтаахын тулд үсгийг зохицуулсан
                               }}
                             >
                               {item.title}
