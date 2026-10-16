@@ -31,6 +31,10 @@ const sections: Section[] = [
       { title: "боди шодой D-116", src: `${VIDEO_BASE}/bodi_shodoi_d116.mp4` },
       { title: "боди шодой D-111", src: `${VIDEO_BASE}/bodi_shodoi_d111.mp4` },
       { title: "боди шодой D-114", src: `${VIDEO_BASE}/bodi_shodoi_d114.mp4` },
+      {
+        title: "Автомат шодой VIB-97",
+        src: `${VIDEO_BASE}/A_Vib97.mp4`,
+      },
       { title: "боди шодой D-117", src: `${VIDEO_BASE}/bodi_shodoi_d117.mp4` },
       {
         title: "Автомат шодой ND-157",
@@ -51,10 +55,6 @@ const sections: Section[] = [
       {
         title: "Автомат шодой ND-24",
         src: `${VIDEO_BASE}/a_ND24.mp4`,
-      },
-      {
-        title: "Автомат шодой VIB-97",
-        src: `${VIDEO_BASE}/A_Vib97.mp4`,
       },
     ],
   },
