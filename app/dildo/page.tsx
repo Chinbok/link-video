@@ -185,7 +185,10 @@ export default function NdAvtoDildoPage() {
         player.muted = false;
         player.volume = 1;
         player.currentTime = 0;
-        player.play().catch(() => {});
+        player.play().catch((err) => {
+          // ESLint Build Error зассан (хоосон функц байсныг лог хэвлэдэг болгов)
+          console.log("Video auto-play interrupted", err);
+        });
       }
       videoSectionRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -212,7 +215,7 @@ export default function NdAvtoDildoPage() {
     <main className="app-shell">
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">ШОДОЙ ВИДЕО</div>
+          <div className="eyebrow">ШОДОЙ 1 ВИДЕО</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
           <p>Захиалга өгөх дугаар: 7272-2002 9910-5590.</p>
           <p>САЙТААР ЗАХИАЛГА ӨГӨХ www.erchuudiindelguur.mn</p>
@@ -267,7 +270,8 @@ export default function NdAvtoDildoPage() {
                         marginTop: "10px",
                       }}
                     >
-                      {section.items!.map((item) => (
+                      {/* Optional Chaining (?) ашиглаж TypeScript Build Error-г зассан */}
+                      {section.items?.map((item) => (
                         <button
                           key={item.src + item.title}
                           type="button"
@@ -284,7 +288,7 @@ export default function NdAvtoDildoPage() {
                             justifyContent: "space-between",
                             width: "100%",
                             textAlign: "left",
-                            minWidth: 0, // Утсан дээр халихаас сэргийлсэн гол код
+                            minWidth: 0,
                           }}
                         >
                           <div
@@ -292,7 +296,7 @@ export default function NdAvtoDildoPage() {
                               display: "flex",
                               alignItems: "center",
                               overflow: "hidden",
-                              flex: 1, // Текстийг багтаах зайг гаргаж өгөх
+                              flex: 1,
                               minWidth: 0,
                             }}
                           >
@@ -319,7 +323,7 @@ export default function NdAvtoDildoPage() {
                                 whiteSpace: "nowrap",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                fontSize: "12px", // Утсанд зориулан хэмжээг бага зэрэг тохируулсан
+                                fontSize: "12px",
                               }}
                             >
                               {item.title}
@@ -330,10 +334,10 @@ export default function NdAvtoDildoPage() {
                             style={{
                               fontSize: "14px",
                               marginLeft: "4px",
-                              flexShrink: 0, // Сумыг хэзээ ч шахаж алга болгохгүй
+                              flexShrink: 0,
                             }}
                           >
-                            ›
+                            &#8250;
                           </span>
                         </button>
                       ))}
