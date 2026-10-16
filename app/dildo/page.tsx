@@ -91,6 +91,7 @@ const sections: Section[] = [
     title:
       "Автомат шодойнуудыг үзэх бол энэ дээр дарна уу (38 төрлийн сонголт байгаа)",
     items: [
+      { title: "Автомат шодой ND-152", src: `${VIDEO_BASE}/A_first ND152.mp4` },
       { title: "Автомат шодой ND-150", src: `${VIDEO_BASE}/A_ND150.mp4` },
       { title: "Автомат шодой ND-151", src: `${VIDEO_BASE}/A_ND151.mp4` },
       { title: "Автомат шодой ND-153", src: `${VIDEO_BASE}/a_ND153.mp4` },
@@ -105,7 +106,6 @@ const sections: Section[] = [
       { title: "Автомат шодой ND-165", src: `${VIDEO_BASE}/A_ND165.mp4` },
       { title: "Автомат шодой VIB-88", src: `${VIDEO_BASE}/a_VIB_88.mp4` },
       { title: "Автомат шодой VIB-97", src: `${VIDEO_BASE}/A_Vib97.mp4` },
-      { title: "Автомат шодой ND-152", src: `${VIDEO_BASE}/A_first ND152.mp4` },
       { title: "Автомат шодой ND-6", src: `${VIDEO_BASE}/A_ND6.mp4` },
       { title: "Автомат шодой ND-8", src: `${VIDEO_BASE}/a_nd8.mp4` },
       { title: "Автомат шодой ND-24", src: `${VIDEO_BASE}/a_ND24.mp4` },
