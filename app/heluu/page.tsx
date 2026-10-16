@@ -42,14 +42,31 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Шинэ цэс 3",
-    subtitle: "Удахгүй нэмэгдэнэ",
-    items: [],
+    title: "Хосын тоглоом",
+    subtitle: "5 төрлийн сонголт",
+    items: [
+      { title: "H_hos3", src: `${VIDEO_BASE}/H_hos3.mp4` },
+      { title: "H_hos4", src: `${VIDEO_BASE}/H_hos4.mp4` },
+      { title: "H_hos5", src: `${VIDEO_BASE}/H_hos5.mp4` },
+      { title: "H_hos7", src: `${VIDEO_BASE}/H_hos7.mp4` },
+      { title: "H_hos6", src: `${VIDEO_BASE}/H_hos6.mp4` },
+    ],
   },
   {
-    title: "Шинэ цэс 4",
-    subtitle: "Удахгүй нэмэгдэнэ",
-    items: [],
+    title: "ӨНДӨГ ТОГЛООМ",
+    subtitle: "10 төрлийн сонголт",
+    items: [
+      { title: "U_ND148", src: `${VIDEO_BASE}/U_ND148.mp4` },
+      { title: "U_Undug10", src: `${VIDEO_BASE}/U_Undug10.mp4` },
+      { title: "U_Undug11", src: `${VIDEO_BASE}/U_Undug11.mp4` },
+      { title: "U_Undug31", src: `${VIDEO_BASE}/U_Undug31.mp4` },
+      { title: "U_Undug32", src: `${VIDEO_BASE}/U_Undug32.mp4` },
+      { title: "U_Undug36", src: `${VIDEO_BASE}/U_Undug36.mp4` },
+      { title: "U_Undug37", src: `${VIDEO_BASE}/U_Undug37.mp4` },
+      { title: "U_Undug38", src: `${VIDEO_BASE}/U_Undug38.mp4` },
+      { title: "U_Undug41", src: `${VIDEO_BASE}/U_Undug41.mp4` },
+      { title: "U_Undug4", src: `${VIDEO_BASE}/U_Undug4.mp4` },
+    ],
   },
   {
     title: "Хамт хэрэглэх бүтээгдэхүүн",
@@ -188,8 +205,8 @@ export default function HeluuVideoPage() {
         }
 
         void player.play().catch(() => {
-          // Автомат тоглуулалтыг хөтөч хориглосон үед
-          // хэрэглэгч Play товчийг дарж үзнэ.
+          // Автомат тоглуулахыг хөтөч хориглосон бол
+          // тоглуулагчийн Play товчийг дарж үзнэ.
         });
       }
 

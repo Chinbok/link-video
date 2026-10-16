@@ -25,7 +25,7 @@ const sections: Section[] = [
     },
   },
   {
-    title: "Боди тоглоом",
+    title: "Боди тоглоом (5 төрлийн сонголт байгаа)",
     items: [
       {
         title: "Боди тоглоом 760",
@@ -50,7 +50,7 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Жижиг үтрээ",
+    title: "Жижиг үтрээ (12 төрлийн сонголт байгаа)",
     items: [
       {
         title: "Жижиг үтрээ 431",
@@ -103,7 +103,7 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Аяган үтрээ",
+    title: "Аяган үтрээ (12 төрлийн сонголт байгаа)",
     items: [
       {
         title: "Хаадын тоглоом",
@@ -156,7 +156,7 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Хамт хэрэглэх бүтээгдэхүүн",
+    title: "Хамт хэрэглэх бүтээгдэхүүн (2 төрлийн сонголт байгаа)",
     items: [
       {
         title: "Чийгшүүлэгч",
@@ -282,8 +282,8 @@ export default function NdAvtoDildoPage() {
                       className="section-options"
                       style={{
                         display: "grid",
-                        gridTemplateColumns: "repeat(2, 1fr)",
-                        gap: "8px",
+                        gridTemplateColumns: "repeat(2, minmax(0, 1fr))", // Анхаарах: Баганыг хүчээр 50/50 болгож халихгүй барьдаг тохиргоо
+                        gap: "6px",
                         marginTop: "10px",
                         width: "100%",
                         boxSizing: "border-box",
@@ -306,9 +306,10 @@ export default function NdAvtoDildoPage() {
                             justifyContent: "space-between",
                             width: "100%",
                             textAlign: "left",
-                            minWidth: 0,
+                            minWidth: 0, // Утасны дэлгэцнээс халихаас сэргийлэх чухал тохиргоо
                             boxSizing: "border-box",
-                            padding: "8px 6px",
+                            padding: "6px 4px", // Утсанд 2 багана багтаахын тулд доторх зайг бага зэрэг хассан
+                            gap: "4px",
                           }}
                         >
                           <div
@@ -343,7 +344,7 @@ export default function NdAvtoDildoPage() {
                                 whiteSpace: "nowrap",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                fontSize: "11px",
+                                fontSize: "11px", // Үсгийн хэмжээ 2 багананд зориулагдсан
                               }}
                             >
                               {item.title}
@@ -353,7 +354,7 @@ export default function NdAvtoDildoPage() {
                             className="sub-action"
                             style={{
                               fontSize: "14px",
-                              marginLeft: "4px",
+                              marginLeft: "2px",
                               flexShrink: 0,
                             }}
                           >
