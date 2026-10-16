@@ -263,7 +263,7 @@ export default function NdAvtoDildoPage() {
                       style={{
                         display: "grid",
                         gridTemplateColumns: "repeat(2, 1fr)",
-                        gap: "10px",
+                        gap: "8px",
                         marginTop: "10px",
                       }}
                     >
@@ -284,6 +284,7 @@ export default function NdAvtoDildoPage() {
                             justifyContent: "space-between",
                             width: "100%",
                             textAlign: "left",
+                            minWidth: 0, // Утсан дээр халихаас сэргийлсэн гол код
                           }}
                         >
                           <div
@@ -291,6 +292,8 @@ export default function NdAvtoDildoPage() {
                               display: "flex",
                               alignItems: "center",
                               overflow: "hidden",
+                              flex: 1, // Текстийг багтаах зайг гаргаж өгөх
+                              minWidth: 0,
                             }}
                           >
                             <span
@@ -299,13 +302,13 @@ export default function NdAvtoDildoPage() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                width: "18px",
-                                height: "18px",
+                                width: "16px",
+                                height: "16px",
                                 border: "1px solid currentColor",
                                 borderRadius: "50%",
-                                marginRight: "8px",
+                                marginRight: "6px",
                                 flexShrink: 0,
-                                fontSize: "9px",
+                                fontSize: "8px",
                               }}
                             >
                               ▶
@@ -316,6 +319,7 @@ export default function NdAvtoDildoPage() {
                                 whiteSpace: "nowrap",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
+                                fontSize: "12px", // Утсанд зориулан хэмжээг бага зэрэг тохируулсан
                               }}
                             >
                               {item.title}
@@ -323,7 +327,11 @@ export default function NdAvtoDildoPage() {
                           </div>
                           <span
                             className="sub-action"
-                            style={{ fontSize: "16px", marginLeft: "4px" }}
+                            style={{
+                              fontSize: "14px",
+                              marginLeft: "4px",
+                              flexShrink: 0, // Сумыг хэзээ ч шахаж алга болгохгүй
+                            }}
                           >
                             ›
                           </span>
