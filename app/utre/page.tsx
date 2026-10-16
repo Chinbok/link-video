@@ -28,16 +28,24 @@ const sections: Section[] = [
     title: "Боди тоглоом",
     items: [
       {
-        title: "Онгон хальстай боди",
-        src: `${VIDEO_BASE}/utree_ongon_tom.mp4`,
+        title: "Боди тоглоом 760",
+        src: `${VIDEO_BASE}/utree_tom760.mp4`,
       },
       {
-        title: "Хөхдөг чичиргээтэй боди",
-        src: `${VIDEO_BASE}/utree_tom_chich.mp4`,
+        title: "Боди тоглоом 730",
+        src: `${VIDEO_BASE}/utree_tom730.mp4`,
       },
       {
-        title: "Энгийн боди",
-        src: `${VIDEO_BASE}/utree_engin.mp4`,
+        title: "Боди тоглоом 761",
+        src: `${VIDEO_BASE}/utree_tom761.mp4`,
+      },
+      {
+        title: "Боди тоглоом 720",
+        src: `${VIDEO_BASE}/utree_tom720.mp4`,
+      },
+      {
+        title: "Боди тоглоом 709",
+        src: `${VIDEO_BASE}/utree_tom709.mp4`,
       },
     ],
   },
@@ -45,12 +53,52 @@ const sections: Section[] = [
     title: "Жижиг үтрээ",
     items: [
       {
-        title: "Жижиг онгон хальстай үтрээ",
-        src: `${VIDEO_BASE}/utree_jijig_ongon.mp4`,
+        title: "Жижиг үтрээ 431",
+        src: `${VIDEO_BASE}/utree_jijig431.mp4`,
       },
       {
-        title: "Жижиг үтрээ",
-        src: `${VIDEO_BASE}/utree_jijig_engiin.mp4`,
+        title: "Жижиг үтрээ 654",
+        src: `${VIDEO_BASE}/utree_jijig654.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 632",
+        src: `${VIDEO_BASE}/UTREE_JIJIG632.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 642",
+        src: `${VIDEO_BASE}/utree_jijig642.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 653",
+        src: `${VIDEO_BASE}/utree_jijig653.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 655",
+        src: `${VIDEO_BASE}/utree_jijig655.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 657",
+        src: `${VIDEO_BASE}/utree_jijig657.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 658",
+        src: `${VIDEO_BASE}/utree_jijig658.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 734",
+        src: `${VIDEO_BASE}/utree_jijig734.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 735",
+        src: `${VIDEO_BASE}/utree_jijig735.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 309",
+        src: `${VIDEO_BASE}/utree_jijig309.mp4`,
+      },
+      {
+        title: "Жижиг үтрээ 765",
+        src: `${VIDEO_BASE}/utree_jijig765.mp4`,
       },
     ],
   },
@@ -58,16 +106,52 @@ const sections: Section[] = [
     title: "Аяган үтрээ",
     items: [
       {
-        title: "Автомат аяга",
-        src: `${VIDEO_BASE}/utre_ayga_automat.mp4`,
+        title: "Хаадын тоглоом",
+        src: `${VIDEO_BASE}/utree_haadiin_toy.mp4`,
       },
       {
-        title: "Хагас автомат аяга",
-        src: `${VIDEO_BASE}/utree_hagas.mp4`,
+        title: "Аяган үтрээ A35",
+        src: `${VIDEO_BASE}/utree_a35.mp4`,
       },
       {
-        title: "Тусгай хэрэгцээт иргэн",
-        src: `${VIDEO_BASE}/utree_tusgai.mp4`,
+        title: "Аяган үтрээ A34",
+        src: `${VIDEO_BASE}/utree_a34.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A33",
+        src: `${VIDEO_BASE}/utree_a33.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A31",
+        src: `${VIDEO_BASE}/utree_a31.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A28",
+        src: `${VIDEO_BASE}/utree_a28.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A27",
+        src: `${VIDEO_BASE}/utree_a27.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A4",
+        src: `${VIDEO_BASE}/utree_a4.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A7",
+        src: `${VIDEO_BASE}/utree_a7.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A8",
+        src: `${VIDEO_BASE}/utree_a8.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A9",
+        src: `${VIDEO_BASE}/utree_a9.mp4`,
+      },
+      {
+        title: "Аяган үтрээ A25",
+        src: `${VIDEO_BASE}/utree_a25.mp4`,
       },
     ],
   },
@@ -201,8 +285,8 @@ export default function NdAvtoDildoPage() {
                         gridTemplateColumns: "repeat(2, 1fr)",
                         gap: "8px",
                         marginTop: "10px",
-                        width: "100%", // Утсан дээр халихаас сэргийлнэ
-                        boxSizing: "border-box", // Доторх хэмжээсийг хайрцагт нь барих
+                        width: "100%",
+                        boxSizing: "border-box",
                       }}
                     >
                       {section.items?.map((item) => (
@@ -223,8 +307,8 @@ export default function NdAvtoDildoPage() {
                             width: "100%",
                             textAlign: "left",
                             minWidth: 0,
-                            boxSizing: "border-box", // Чухал: утасны дэлгэцнээс гаргахгүй
-                            padding: "8px 6px", // Утсанд тааруулж хэт том зайг нь багасгасан
+                            boxSizing: "border-box",
+                            padding: "8px 6px",
                           }}
                         >
                           <div
@@ -259,7 +343,7 @@ export default function NdAvtoDildoPage() {
                                 whiteSpace: "nowrap",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                fontSize: "11px", // Утсанд 2 багана багтаахын тулд үсгийг зохицуулсан
+                                fontSize: "11px",
                               }}
                             >
                               {item.title}
