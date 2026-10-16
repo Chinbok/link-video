@@ -11,6 +11,7 @@ type Section = {
   title: string;
   items?: VideoItem[];
   video?: VideoItem;
+  link?: string;
 };
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
@@ -36,7 +37,7 @@ const sections: Section[] = [
       },
       {
         title: "Энгийн боди",
-        src: `${VIDEO_BASE}/utree_engin.mp4`, // Видеоны файлын нэрээ солиорой
+        src: `${VIDEO_BASE}/utree_engin.mp4`,
       },
     ],
   },
@@ -66,7 +67,7 @@ const sections: Section[] = [
       },
       {
         title: "Тусгай хэрэгцээт иргэн",
-        src: `${VIDEO_BASE}/utree_tusgai.mp4`, // Видеоны файлын нэрээ солиорой
+        src: `${VIDEO_BASE}/utree_tusgai.mp4`,
       },
     ],
   },
@@ -82,6 +83,10 @@ const sections: Section[] = [
         src: `${VIDEO_BASE}/utree_savan.mp4`,
       },
     ],
+  },
+  {
+    title: "Захиалга өгөх",
+    link: "https://www.facebook.com/profile.php?id=61584532924262",
   },
   {
     title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
@@ -118,16 +123,24 @@ export default function NdAvtoDildoPage() {
 
       const playPromise = player.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {});
+        playPromise.catch((err) => {
+          console.log("Video auto-play interrupted", err);
+        });
       }
     }
   }, [activeVideo]);
 
   const handleSection = (section: Section, index: number) => {
+    if (section.link) {
+      window.location.href = section.link;
+      return;
+    }
+
     if (section.video) {
       playVideo(section.video);
       return;
     }
+
     setOpenSection(openSection === index ? null : index);
   };
 
@@ -151,6 +164,7 @@ export default function NdAvtoDildoPage() {
             {sections.map((section, index) => {
               const isOpen = openSection === index;
               const hasDropdown = !!section.items;
+              const isLink = !!section.link;
 
               return (
                 <div
@@ -167,17 +181,31 @@ export default function NdAvtoDildoPage() {
                     <span className="section-text">
                       <strong>{section.title}</strong>
                       <small>
-                        {hasDropdown ? "Сонголтуудыг харах" : "Бичлэг үзэх"}
+                        {isLink
+                          ? "Эрчүүдийн дэлгүүрийн Page"
+                          : hasDropdown
+                            ? "Сонголтуудыг харах"
+                            : "Бичлэг үзэх"}
                       </small>
                     </span>
                     <span className={`section-icon ${isOpen ? "rotate" : ""}`}>
-                      {hasDropdown ? "⌄" : "▶"}
+                      {isLink ? "↗" : hasDropdown ? "⌄" : "▶"}
                     </span>
                   </button>
 
                   {hasDropdown && isOpen && (
-                    <div className="section-options">
-                      {section.items!.map((item) => (
+                    <div
+                      className="section-options"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(2, 1fr)",
+                        gap: "8px",
+                        marginTop: "10px",
+                        width: "100%", // Утсан дээр халихаас сэргийлнэ
+                        boxSizing: "border-box", // Доторх хэмжээсийг хайрцагт нь барих
+                      }}
+                    >
+                      {section.items?.map((item) => (
                         <button
                           key={item.src + item.title}
                           type="button"
@@ -188,10 +216,65 @@ export default function NdAvtoDildoPage() {
                               : ""
                           }`}
                           onClick={() => playVideo(item)}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            width: "100%",
+                            textAlign: "left",
+                            minWidth: 0,
+                            boxSizing: "border-box", // Чухал: утасны дэлгэцнээс гаргахгүй
+                            padding: "8px 6px", // Утсанд тааруулж хэт том зайг нь багасгасан
+                          }}
                         >
-                          <span className="sub-play">▶</span>
-                          <span className="sub-title">{item.title}</span>
-                          <span className="sub-action">Үзэх</span>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              overflow: "hidden",
+                              flex: 1,
+                              minWidth: 0,
+                            }}
+                          >
+                            <span
+                              className="sub-play"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: "16px",
+                                height: "16px",
+                                border: "1px solid currentColor",
+                                borderRadius: "50%",
+                                marginRight: "6px",
+                                flexShrink: 0,
+                                fontSize: "8px",
+                              }}
+                            >
+                              ▶
+                            </span>
+                            <span
+                              className="sub-title"
+                              style={{
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                fontSize: "11px", // Утсанд 2 багана багтаахын тулд үсгийг зохицуулсан
+                              }}
+                            >
+                              {item.title}
+                            </span>
+                          </div>
+                          <span
+                            className="sub-action"
+                            style={{
+                              fontSize: "14px",
+                              marginLeft: "4px",
+                              flexShrink: 0,
+                            }}
+                          >
+                            &#8250;
+                          </span>
                         </button>
                       ))}
                     </div>
