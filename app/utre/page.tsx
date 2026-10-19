@@ -50,12 +50,8 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Жижиг үтрээ (12 төрлийн сонголт байгаа)",
+    title: "Жижиг үтрээ энгийн (7 төрлийн сонголт байгаа)",
     items: [
-      {
-        title: "Жижиг үтрээ 431",
-        src: `${VIDEO_BASE}/utree_jijig431.mp4`,
-      },
       {
         title: "Жижиг үтрээ 654",
         src: `${VIDEO_BASE}/utree_jijig654.mp4`,
@@ -63,18 +59,6 @@ const sections: Section[] = [
       {
         title: "Жижиг үтрээ 632",
         src: `${VIDEO_BASE}/UTREE_JIJIG632.mp4`,
-      },
-      {
-        title: "Жижиг үтрээ 642",
-        src: `${VIDEO_BASE}/utree_jijig642.mp4`,
-      },
-      {
-        title: "Жижиг үтрээ 653",
-        src: `${VIDEO_BASE}/utree_jijig653.mp4`,
-      },
-      {
-        title: "Жижиг үтрээ 655",
-        src: `${VIDEO_BASE}/utree_jijig655.mp4`,
       },
       {
         title: "Жижиг үтрээ 657",
@@ -96,8 +80,29 @@ const sections: Section[] = [
         title: "Жижиг үтрээ 309",
         src: `${VIDEO_BASE}/utree_jijig309.mp4`,
       },
+    ],
+  },
+  {
+    title: "Онгон жижиг үтрээ (5 төрлийн сонголт байгаа)",
+    items: [
       {
-        title: "Жижиг үтрээ 765",
+        title: "Онгон жижиг үтрээ 431",
+        src: `${VIDEO_BASE}/utree_jijig431.mp4`,
+      },
+      {
+        title: "Онгон жижиг үтрээ 642",
+        src: `${VIDEO_BASE}/utree_jijig642.mp4`,
+      },
+      {
+        title: "Онгон жижиг үтрээ 653",
+        src: `${VIDEO_BASE}/utree_jijig653.mp4`,
+      },
+      {
+        title: "Онгон жижиг үтрээ 655",
+        src: `${VIDEO_BASE}/utree_jijig655.mp4`,
+      },
+      {
+        title: "Онгон жижиг үтрээ 765",
         src: `${VIDEO_BASE}/utree_jijig765.mp4`,
       },
     ],
@@ -282,7 +287,7 @@ export default function NdAvtoDildoPage() {
                       className="section-options"
                       style={{
                         display: "grid",
-                        gridTemplateColumns: "repeat(2, minmax(0, 1fr))", // Анхаарах: Баганыг хүчээр 50/50 болгож халихгүй барьдаг тохиргоо
+                        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
                         gap: "6px",
                         marginTop: "10px",
                         width: "100%",
@@ -306,9 +311,9 @@ export default function NdAvtoDildoPage() {
                             justifyContent: "space-between",
                             width: "100%",
                             textAlign: "left",
-                            minWidth: 0, // Утасны дэлгэцнээс халихаас сэргийлэх чухал тохиргоо
+                            minWidth: 0,
                             boxSizing: "border-box",
-                            padding: "6px 4px", // Утсанд 2 багана багтаахын тулд доторх зайг бага зэрэг хассан
+                            padding: "6px 4px",
                             gap: "4px",
                           }}
                         >
@@ -344,7 +349,7 @@ export default function NdAvtoDildoPage() {
                                 whiteSpace: "nowrap",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                fontSize: "11px", // Үсгийн хэмжээ 2 багананд зориулагдсан
+                                fontSize: "11px",
                               }}
                             >
                               {item.title}
