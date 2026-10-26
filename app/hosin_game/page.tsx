@@ -17,11 +17,18 @@ type Section = {
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
+const productImagesList = [
+  `${VIDEO_BASE}/hos_071.png`,
+  `${VIDEO_BASE}/hos_072.png`,
+  `${VIDEO_BASE}/hos_073.png`,
+  `${VIDEO_BASE}/hos_074.png`,
+  `${VIDEO_BASE}/hos_075.png`,
+];
+
 const sections: Section[] = [
   // 1. 1 дүгээрт байрлах зургуудын dropdown товч
   {
     title: "Бүтээгдэхүүний зургууд",
-    image: `${VIDEO_BASE}/hos_071.png`,
     images: [
       { title: "Зураг 1", src: `${VIDEO_BASE}/hos_071.png` },
       { title: "Зураг 2", src: `${VIDEO_BASE}/hos_072.png` },
@@ -39,11 +46,11 @@ const sections: Section[] = [
         src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
       },
       {
-        title: "video-2",
+        title: "video",
         src: `${VIDEO_BASE}/hos_1.mp4`,
       },
       {
-        title: "video-3",
+        title: "vedio-3",
         src: `${VIDEO_BASE}/hos_porn.mp4`,
       },
     ],
@@ -62,20 +69,28 @@ export default function SoftDarkVideoPage() {
   const [activeVideo, setActiveVideo] = useState<MediaItem | null>(null);
   const [activeImage, setActiveImage] = useState<MediaItem | null>(null);
 
+  // 1 дэх товчны зургийг 2 секунд тутамд солих state
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoSectionRef = useRef<HTMLElement>(null);
   const imageSectionRef = useRef<HTMLElement>(null);
 
-  // 1. Хэрэглэгч өмнө нь 18+ баталгаажуулсан эсэхийг шалгах
   useEffect(() => {
     setMounted(true);
     const savedVerification = localStorage.getItem("ageVerified");
     if (savedVerification === "true") {
       setIsVerified(true);
     }
+
+    // 2 секунд тутамд зургийн индекцийг урагшлуулах
+    const imageInterval = setInterval(() => {
+      setCurrentImgIndex((prev) => (prev + 1) % productImagesList.length);
+    }, 2000);
+
+    return () => clearInterval(imageInterval);
   }, []);
 
-  // 2. Бичлэг сонгогдох үед тоглуулах болон scroll хийх
   useEffect(() => {
     if (activeVideo && videoSectionRef.current && videoRef.current) {
       const player = videoRef.current;
@@ -92,7 +107,6 @@ export default function SoftDarkVideoPage() {
     }
   }, [activeVideo]);
 
-  // 3. Зураг сонгогдох үед scroll хийх
   useEffect(() => {
     if (activeImage && imageSectionRef.current) {
       imageSectionRef.current.scrollIntoView({
@@ -132,19 +146,16 @@ export default function SoftDarkVideoPage() {
 
   if (!mounted) return null;
 
-  // 18+ НАС БАТАЛГААЖУУЛАХ
   if (!isVerified) {
     return (
       <div className="age-overlay">
         <style>{`
           * { box-sizing: border-box; }
-
           body {
             margin: 0;
             background: #101010;
             font-family: system-ui, sans-serif;
           }
-
           .age-overlay {
             position: fixed;
             inset: 0;
@@ -155,7 +166,6 @@ export default function SoftDarkVideoPage() {
             background: #101010;
             z-index: 9999;
           }
-
           .age-card {
             width: 100%;
             max-width: 400px;
@@ -166,7 +176,6 @@ export default function SoftDarkVideoPage() {
             text-align: center;
             box-shadow: 0 20px 70px #0007;
           }
-
           .age-icon {
             width: 76px;
             height: 76px;
@@ -181,7 +190,6 @@ export default function SoftDarkVideoPage() {
             font-weight: 900;
             background: #f8717112;
           }
-
           .age-title {
             color: #fff;
             font-size: 21px;
@@ -189,19 +197,16 @@ export default function SoftDarkVideoPage() {
             line-height: 1.4;
             margin: 0 0 14px;
           }
-
           .age-description {
             color: #aaaab2;
             font-size: 14px;
             line-height: 1.8;
             margin-bottom: 28px;
           }
-
           .age-actions {
             display: flex;
             gap: 12px;
           }
-
           .age-actions button {
             flex: 1;
             border: none;
@@ -211,12 +216,10 @@ export default function SoftDarkVideoPage() {
             font-size: 14px;
             cursor: pointer;
           }
-
           .age-yes {
             background: #f87171;
             color: #181818;
           }
-
           .age-no {
             background: #303034;
             color: #fff;
@@ -250,7 +253,6 @@ export default function SoftDarkVideoPage() {
     );
   }
 
-  // ҮНДСЭН ХУУДАС
   return (
     <main className="app-shell">
       <style>{`
@@ -259,7 +261,6 @@ export default function SoftDarkVideoPage() {
         .app-shell { min-height: 100vh; background: #101010; color: #fff; padding: 42px 0 70px; }
         .page-container { max-width: 520px; margin: 0 auto; padding: 0 18px; }
 
-        /* HEADER */
         .page-header { text-align: center; margin-bottom: 32px; }
         .eyebrow { display: inline-flex; align-items: center; justify-content: center; background: #f8717114; border: 1px solid #f8717125; color: #f87171; padding: 8px 17px; border-radius: 100px; font-size: 12px; font-weight: 900; letter-spacing: 1.5px; margin-bottom: 20px; }
         .page-header h1 { color: #fff; font-size: clamp(22px, 5vw, 28px); font-weight: 900; line-height: 1.35; margin: 0 0 20px; letter-spacing: -0.5px; }
@@ -267,19 +268,16 @@ export default function SoftDarkVideoPage() {
         .header-info p { color: #c9c9cf; font-size: 13px; font-weight: 600; line-height: 1.7; margin: 4px 0; }
         .header-info strong { color: #fff; font-weight: 800; }
 
-        /* MAIN CARD */
         .guide-card { background: #1b1b1d; border: 1px solid #303034; border-radius: 22px; padding: 22px; box-shadow: 0 12px 45px #0003; }
         .guide-heading { display: flex; flex-direction: column; gap: 7px; padding-bottom: 19px; margin-bottom: 15px; border-bottom: 1px solid #303034; }
         .guide-heading span { color: #f87171; font-size: 17px; font-weight: 900; }
         .guide-heading small { color: #a5a5af; font-size: 13px; font-weight: 500; line-height: 1.5; }
 
-        /* BUTTON LIST */
         .section-list { display: flex; flex-direction: column; gap: 12px; }
         .guide-section { width: 100%; }
         .section-button { appearance: none; -webkit-appearance: none; display: flex; align-items: center; width: 100%; min-height: 88px; padding: 16px; border: 1px solid #35353a; border-radius: 16px; background: #242427; color: #fff; text-align: left; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; font-family: inherit; }
         .section-button:hover { background: #2b2b30; border-color: #f8717180; transform: translateY(-2px); }
         .section-button:active { transform: scale(0.99); }
-        .section-button:focus-visible, .sub-option:focus-visible { outline: 2px solid #f87171; outline-offset: 3px; }
         .section-number { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 43px; height: 43px; margin-right: 15px; border-radius: 13px; border: 1px solid #f8717140; background: #f8717114; color: #f87171; font-size: 17px; font-weight: 900; }
         .section-text { display: flex; flex: 1; flex-direction: column; gap: 7px; min-width: 0; }
         .section-text strong { color: #fff; font-size: 15px; font-weight: 800; line-height: 1.45; }
@@ -287,7 +285,6 @@ export default function SoftDarkVideoPage() {
         .section-icon { flex-shrink: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-left: 10px; border-radius: 50%; background: #f8717117; color: #f87171; font-size: 17px; font-weight: 800; }
         .section-icon svg { width: 16px; height: 16px; }
 
-        /* TWO-COLUMN DROPDOWN */
         .section-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 14px 0 4px; }
         .sub-option { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 65px; padding: 10px; border-radius: 12px; border: 1px solid #35353a; background: #28282b; color: #fff; cursor: pointer; text-align: left; font-family: inherit; transition: background 0.2s, border-color 0.2s; }
         .sub-option:hover { background: #323236; border-color: #f87171; }
@@ -295,7 +292,6 @@ export default function SoftDarkVideoPage() {
         .sub-title { flex: 1; min-width: 0; color: #fff; font-weight: 700; font-size: 12px; overflow-wrap: anywhere; }
         .sub-arrow { flex-shrink: 0; color: #f87171; font-size: 20px; }
 
-        /* MEDIA VIEWER (IMAGE & VIDEO) */
         .video-section, .image-section { margin-top: 24px; background: #1b1b1d; border: 1px solid #303034; border-radius: 22px; padding: 20px; box-shadow: 0 12px 40px #0004; scroll-margin-top: 20px; }
         .video-label, .image-label { display: inline-block; background: #f8717115; border-radius: 6px; color: #f87171; padding: 6px 10px; font-size: 11px; font-weight: 900; letter-spacing: 1px; }
         .video-header h2, .image-header h2 { margin: 15px 0; font-size: 18px; font-weight: 800; line-height: 1.5; color: #fff; }
@@ -303,7 +299,6 @@ export default function SoftDarkVideoPage() {
         .image-wrap img { display: block; width: 100%; height: auto; max-height: 75vh; border-radius: 12px; object-fit: contain; background: #050505; border: 1px solid #303034; }
         .video-note, .image-note { margin: 15px 0 0; text-align: center; color: #a5a5af; font-size: 12px; line-height: 1.7; }
 
-        /* MOBILE */
         @media (max-width: 480px) {
           .app-shell { padding-top: 32px; }
           .page-container { padding: 0 14px; }
@@ -343,6 +338,12 @@ export default function SoftDarkVideoPage() {
               const hasDropdown = !!section.items || !!section.images;
               const isOpen = openSection === index;
 
+              // 1 дэх товчны зургийг 2 секунд тутамд автоматаар солигдохоор оноох
+              const displayImage =
+                index === 0
+                  ? productImagesList[currentImgIndex]
+                  : section.image;
+
               return (
                 <div key={section.title} className="guide-section">
                   <button
@@ -351,10 +352,9 @@ export default function SoftDarkVideoPage() {
                     onClick={() => handleSection(section, index)}
                     aria-expanded={hasDropdown ? isOpen : undefined}
                   >
-                    {/* Хэрвээ тухайн хэсэгт зураг оруулсан бол зураг гарах хэсэг */}
-                    {section.image ? (
+                    {displayImage ? (
                       <img
-                        src={section.image}
+                        src={displayImage}
                         alt=""
                         style={{
                           flexShrink: 0,
@@ -363,7 +363,9 @@ export default function SoftDarkVideoPage() {
                           marginRight: "15px",
                           borderRadius: "13px",
                           objectFit: "cover",
-                          border: "1px solid #f8717140",
+                          background: "#18181b",
+                          border: "1px solid #f8717150",
+                          transition: "opacity 0.3s ease-in-out",
                         }}
                       />
                     ) : (
@@ -406,7 +408,6 @@ export default function SoftDarkVideoPage() {
 
                   {hasDropdown && isOpen && (
                     <div className="section-options">
-                      {/* Зургийн dropdown сонголтууд */}
                       {section.images?.map((imgItem, imgIndex) => (
                         <button
                           type="button"
@@ -420,7 +421,6 @@ export default function SoftDarkVideoPage() {
                         </button>
                       ))}
 
-                      {/* Видеоны dropdown сонголтууд */}
                       {section.items?.map((item, itemIndex) => (
                         <button
                           type="button"
@@ -441,7 +441,6 @@ export default function SoftDarkVideoPage() {
           </div>
         </section>
 
-        {/* ЗУРАГ ҮЗЭХ ХЭСЭГ */}
         {activeImage && (
           <section ref={imageSectionRef} className="image-section">
             <div className="image-header">
@@ -457,7 +456,6 @@ export default function SoftDarkVideoPage() {
           </section>
         )}
 
-        {/* ВИДЕО ТОГЛУУЛАГЧ ХЭСЭГ */}
         {activeVideo && (
           <section ref={videoSectionRef} className="video-section">
             <div className="video-header">
@@ -473,6 +471,7 @@ export default function SoftDarkVideoPage() {
                 controls
                 playsInline
                 preload="metadata"
+                loop
               />
             </div>
             <p className="video-note">
