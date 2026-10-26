@@ -179,10 +179,16 @@ const sections: Section[] = [
   },
   {
     title: "Хэрэглэж байгаа бичлэг үзэх бол энэ дээр дарна уу",
-    video: {
-      title: "Хэрэглэж байгаа бичлэг",
-      src: `${VIDEO_BASE}/utree_po.mp4`,
-    },
+    items: [
+      {
+        title: "Боди үтрээ",
+        src: `${VIDEO_BASE}/utree_po.mp4`,
+      },
+      {
+        title: "Аяган тоглоом",
+        src: `${VIDEO_BASE}/aygan_game.mp4`,
+      },
+    ],
   },
 ];
 
