@@ -24,13 +24,17 @@ const sections: Section[] = [
     link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
     image: "https://erchuudiindelguur.mn/videos/таны_зургийн_нэр.png", // 👈 WordPress рүү оруулсан зургаа энд бичнэ үү
   },
-  // 2. 2 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (hos-1 видеотой)
+  // 2. 2 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (hos-1 болон hos-2 видеонуудтай)
   {
     title: "Хосын тоглоом",
     items: [
       {
         title: "hos-1",
         src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
+      },
+      {
+        title: "hos-2",
+        src: `${VIDEO_BASE}/hos_togloom_heregleech2.mp4`,
       },
     ],
   },
