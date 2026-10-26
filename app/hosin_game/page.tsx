@@ -39,11 +39,11 @@ const sections: Section[] = [
         src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
       },
       {
-        title: "video",
+        title: "video-2",
         src: `${VIDEO_BASE}/hos_1.mp4`,
       },
       {
-        title: "vedio-3",
+        title: "video-3",
         src: `${VIDEO_BASE}/hos_porn.mp4`,
       },
     ],
