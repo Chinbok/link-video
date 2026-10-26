@@ -12,18 +12,29 @@ type Section = {
   items?: VideoItem[];
   video?: VideoItem;
   link?: string;
+  image?: string;
 };
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
 const sections: Section[] = [
+  // 1. 1 дүгээрт байрлах зурагтай линк товч
   {
-    title: "Хосын тоглоом хэрэглэгч",
-    video: {
-      title: "Хос тоглоом хэрэглэгч 1",
-      src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
-    },
+    title: "Шинэ товчны нэр энд бичнэ үү",
+    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
+    image: "https://erchuudiindelguur.mn/videos/таны_зургийн_нэр.png", // 👈 WordPress рүү оруулсан зургаа энд бичнэ үү
   },
+  // 2. 2 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (hos-1 видеотой)
+  {
+    title: "Хосын тоглоом",
+    items: [
+      {
+        title: "hos-1",
+        src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
+      },
+    ],
+  },
+  // 3. 3 дугаарт байрлах захиалга өгөх линк
   {
     title: "Захиалга өгөх",
     link: "https://www.facebook.com/profile.php?id=61584532924262",
@@ -311,13 +322,30 @@ export default function SoftDarkVideoPage() {
                     onClick={() => handleSection(section, index)}
                     aria-expanded={hasDropdown ? isOpen : undefined}
                   >
-                    <span className="section-number">{index + 1}</span>
+                    {/* Хэрвээ тухайн хэсэгт зураг оруулсан бол зураг гарах хэсэг */}
+                    {section.image ? (
+                      <img
+                        src={section.image}
+                        alt=""
+                        style={{
+                          flexShrink: 0,
+                          width: "43px",
+                          height: "43px",
+                          marginRight: "15px",
+                          borderRadius: "13px",
+                          objectFit: "cover",
+                          border: "1px solid #f8717140",
+                        }}
+                      />
+                    ) : (
+                      <span className="section-number">{index + 1}</span>
+                    )}
 
                     <span className="section-text">
                       <strong>{section.title}</strong>
                       <small>
                         {isLink
-                          ? "Эрчүүдийн дэлгүүр Page"
+                          ? "ЛИНК РҮҮ ҮСРЭХ"
                           : hasDropdown
                             ? "Бичлэгүүдийг харах"
                             : "Бичлэг үзэх"}
