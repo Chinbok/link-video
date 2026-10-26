@@ -287,17 +287,16 @@ export default function SoftDarkVideoPage() {
               <strong>8810-9957</strong>
             </p>
             <p>
-              САЙТААР ЗАХИАЛГА ӨГӨХ <strong>erchuudiindelguur.mn/</strong>
+              САЙТААР ЗАХИАЛГА ӨГӨХ <strong>erchuudiindelguur.mn</strong>
             </p>
           </div>
         </header>
 
         <section className="guide-card">
           <div className="guide-heading">
-            <span>ЗӨВЛӨГӨӨ</span>
+            <span>ХОСЫН ТОГЛООМ </span>
             <small>Бичлэг үзэх бол доорх товчлуур дээр дарна уу</small>
           </div>
-
           <div className="section-list">
             {sections.map((section, index) => {
               const isLink = !!section.link;
@@ -318,7 +317,7 @@ export default function SoftDarkVideoPage() {
                       <strong>{section.title}</strong>
                       <small>
                         {isLink
-                          ? "HOT MONGOLIA Page"
+                          ? "Эрчүүдийн дэлгүүр Page"
                           : hasDropdown
                             ? "Бичлэгүүдийг харах"
                             : "Бичлэг үзэх"}
