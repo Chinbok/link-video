@@ -34,7 +34,7 @@ const sections: Section[] = [
       },
       {
         title: "hos-2",
-        src: `${VIDEO_BASE}/hos_togloom_heregleech2.mp4`,
+        src: `${VIDEO_BASE}/hos_1.mp4`,
       },
     ],
   },
