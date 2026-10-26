@@ -29,11 +29,11 @@ const sections: Section[] = [
     title: "Хосын тоглоом",
     items: [
       {
-        title: "hos-1",
+        title: "video-1",
         src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
       },
       {
-        title: "hos-2",
+        title: "video",
         src: `${VIDEO_BASE}/hos_1.mp4`,
       },
     ],
