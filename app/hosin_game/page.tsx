@@ -18,7 +18,7 @@ const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
 const sections: Section[] = [
   {
-    title: "Багцын хэрэглэгчдэд өгөх зөвлөгөө",
+    title: "Хосын тоглоом хэрэглэгч",
     video: {
       title: "Хос тоглоом хэрэглэгч 1",
       src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
@@ -26,7 +26,7 @@ const sections: Section[] = [
   },
   {
     title: "Захиалга өгөх",
-    link: "https://www.facebook.com/hotmongolia",
+    link: "https://www.facebook.com/profile.php?id=61584532924262",
   },
 ];
 
@@ -279,15 +279,15 @@ export default function SoftDarkVideoPage() {
 
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">ЗӨВЛӨГӨӨ БИЧЛЭГ</div>
+          <div className="eyebrow">хэрэглээж байгааБИЧЛЭГ</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
           <div className="header-info">
             <p>
-              Захиалга өгөх дугаар: <strong>7277-0044</strong>{" "}
-              <strong>8810-9133</strong>
+              Захиалга өгөх дугаар: <strong>7272-2002</strong>{" "}
+              <strong>8810-9957</strong>
             </p>
             <p>
-              САЙТААР ЗАХИАЛГА ӨГӨХ <strong>hotmongolia.shop</strong>
+              САЙТААР ЗАХИАЛГА ӨГӨХ <strong>erchuudiindelguur.mn/</strong>
             </p>
           </div>
         </header>
