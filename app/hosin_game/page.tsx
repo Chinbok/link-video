@@ -2,53 +2,35 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type VideoItem = {
+type MediaItem = {
   title: string;
   src: string;
 };
 
 type Section = {
   title: string;
-  items?: VideoItem[];
-  video?: VideoItem;
+  items?: MediaItem[]; // Видео жагсаалт
+  images?: MediaItem[]; // Зургийн жагсаалт (Dropdown)
   link?: string;
-  image?: string;
+  image?: string; // Гол товчны жижиг зураг
 };
 
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
 const sections: Section[] = [
-  // 1 дүгээрт байрлах зурагтай линк товч
+  // 1. 1 дүгээрт байрлах зургуудын dropdown товч
   {
-    title: "Бүтээгдэхүүн 1",
-    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
+    title: "Бүтээгдэхүүний зургууд",
     image: `${VIDEO_BASE}/hos_071.png`,
+    images: [
+      { title: "Зураг 1", src: `${VIDEO_BASE}/hos_071.png` },
+      { title: "Зураг 2", src: `${VIDEO_BASE}/hos_072.png` },
+      { title: "Зураг 3", src: `${VIDEO_BASE}/hos_073.png` },
+      { title: "Зураг 4", src: `${VIDEO_BASE}/hos_074.png` },
+      { title: "Зураг 5", src: `${VIDEO_BASE}/hos_075.png` },
+    ],
   },
-  // 2 дугаарт байрлах зурагтай линк товч
-  {
-    title: "Бүтээгдэхүүн 2",
-    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
-    image: `${VIDEO_BASE}/hos_072.png`,
-  },
-  // 3 дугаарт байрлах зурагтай линк товч
-  {
-    title: "Бүтээгдэхүүн 3",
-    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
-    image: `${VIDEO_BASE}/hos_073.png`,
-  },
-  // 4 дүгээрт байрлах зурагтай линк товч
-  {
-    title: "Бүтээгдэхүүн 4",
-    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
-    image: `${VIDEO_BASE}/hos_074.png`,
-  },
-  // 5 дугаарт байрлах зурагтай линк товч
-  {
-    title: "Бүтээгдэхүүн 5",
-    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
-    image: `${VIDEO_BASE}/hos_075.png`,
-  },
-  // 6 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (3 видеотой)
+  // 2. 2 дугаарт байрлах Хосын тоглоом (Видеонуудтай Dropdown)
   {
     title: "Хосын тоглоом",
     items: [
@@ -66,7 +48,7 @@ const sections: Section[] = [
       },
     ],
   },
-  // 7 дугаарт байрлах захиалга өгөх линк
+  // 3. 3 дугаарт байрлах захиалга өгөх линк
   {
     title: "Захиалга өгөх",
     link: "https://www.facebook.com/profile.php?id=61584532924262",
@@ -77,10 +59,12 @@ export default function SoftDarkVideoPage() {
   const [mounted, setMounted] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [openSection, setOpenSection] = useState<number | null>(null);
-  const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
+  const [activeVideo, setActiveVideo] = useState<MediaItem | null>(null);
+  const [activeImage, setActiveImage] = useState<MediaItem | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoSectionRef = useRef<HTMLElement>(null);
+  const imageSectionRef = useRef<HTMLElement>(null);
 
   // 1. Хэрэглэгч өмнө нь 18+ баталгаажуулсан эсэхийг шалгах
   useEffect(() => {
@@ -108,13 +92,30 @@ export default function SoftDarkVideoPage() {
     }
   }, [activeVideo]);
 
+  // 3. Зураг сонгогдох үед scroll хийх
+  useEffect(() => {
+    if (activeImage && imageSectionRef.current) {
+      imageSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [activeImage]);
+
   const verifyAge = () => {
     localStorage.setItem("ageVerified", "true");
     setIsVerified(true);
   };
 
-  const playVideo = (video: VideoItem) => {
+  const playVideo = (video: MediaItem) => {
     setActiveVideo(video);
+    setActiveImage(null);
+    setOpenSection(null);
+  };
+
+  const viewImage = (image: MediaItem) => {
+    setActiveImage(image);
+    setActiveVideo(null);
     setOpenSection(null);
   };
 
@@ -124,12 +125,7 @@ export default function SoftDarkVideoPage() {
       return;
     }
 
-    if (section.video) {
-      playVideo(section.video);
-      return;
-    }
-
-    if (section.items) {
+    if (section.items || section.images) {
       setOpenSection(openSection === index ? null : index);
     }
   };
@@ -299,12 +295,13 @@ export default function SoftDarkVideoPage() {
         .sub-title { flex: 1; min-width: 0; color: #fff; font-weight: 700; font-size: 12px; overflow-wrap: anywhere; }
         .sub-arrow { flex-shrink: 0; color: #f87171; font-size: 20px; }
 
-        /* VIDEO PLAYER */
-        .video-section { margin-top: 24px; background: #1b1b1d; border: 1px solid #303034; border-radius: 22px; padding: 20px; box-shadow: 0 12px 40px #0004; scroll-margin-top: 20px; }
-        .video-label { display: inline-block; background: #f8717115; border-radius: 6px; color: #f87171; padding: 6px 10px; font-size: 11px; font-weight: 900; letter-spacing: 1px; }
-        .video-header h2 { margin: 15px 0; font-size: 18px; font-weight: 800; line-height: 1.5; color: #fff; }
+        /* MEDIA VIEWER (IMAGE & VIDEO) */
+        .video-section, .image-section { margin-top: 24px; background: #1b1b1d; border: 1px solid #303034; border-radius: 22px; padding: 20px; box-shadow: 0 12px 40px #0004; scroll-margin-top: 20px; }
+        .video-label, .image-label { display: inline-block; background: #f8717115; border-radius: 6px; color: #f87171; padding: 6px 10px; font-size: 11px; font-weight: 900; letter-spacing: 1px; }
+        .video-header h2, .image-header h2 { margin: 15px 0; font-size: 18px; font-weight: 800; line-height: 1.5; color: #fff; }
         .video-wrap video { display: block; width: 100%; height: auto; max-height: 75vh; border-radius: 12px; background: #050505; border: 1px solid #303034; outline: none; }
-        .video-note { margin: 15px 0 0; text-align: center; color: #a5a5af; font-size: 12px; line-height: 1.7; }
+        .image-wrap img { display: block; width: 100%; height: auto; max-height: 75vh; border-radius: 12px; object-fit: contain; background: #050505; border: 1px solid #303034; }
+        .video-note, .image-note { margin: 15px 0 0; text-align: center; color: #a5a5af; font-size: 12px; line-height: 1.7; }
 
         /* MOBILE */
         @media (max-width: 480px) {
@@ -338,12 +335,12 @@ export default function SoftDarkVideoPage() {
         <section className="guide-card">
           <div className="guide-heading">
             <span>БҮТЭЭГДЭХҮҮН & ВИДЕО</span>
-            <small>Бичлэг үзэх эсвэл линк рүү орох бол дарна уу</small>
+            <small>Зураг эсвэл видео үзэх бол товчлуур дээр дарна уу</small>
           </div>
           <div className="section-list">
             {sections.map((section, index) => {
               const isLink = !!section.link;
-              const hasDropdown = !!section.items;
+              const hasDropdown = !!section.items || !!section.images;
               const isOpen = openSection === index;
 
               return (
@@ -379,8 +376,8 @@ export default function SoftDarkVideoPage() {
                         {isLink
                           ? "ЛИНК РҮҮ ҮСРЭХ"
                           : hasDropdown
-                            ? "Бичлэгүүдийг харах"
-                            : "Бичлэг үзэх"}
+                            ? "Сонголтуудыг харах"
+                            : "Үзэх"}
                       </small>
                     </span>
 
@@ -409,10 +406,25 @@ export default function SoftDarkVideoPage() {
 
                   {hasDropdown && isOpen && (
                     <div className="section-options">
+                      {/* Зургийн dropdown сонголтууд */}
+                      {section.images?.map((imgItem, imgIndex) => (
+                        <button
+                          type="button"
+                          key={`img-${imgItem.src}-${imgIndex}`}
+                          className="sub-option"
+                          onClick={() => viewImage(imgItem)}
+                        >
+                          <span className="sub-play">🖼️</span>
+                          <span className="sub-title">{imgItem.title}</span>
+                          <span className="sub-arrow">›</span>
+                        </button>
+                      ))}
+
+                      {/* Видеоны dropdown сонголтууд */}
                       {section.items?.map((item, itemIndex) => (
                         <button
                           type="button"
-                          key={`${item.src}-${itemIndex}`}
+                          key={`vid-${item.src}-${itemIndex}`}
                           className="sub-option"
                           onClick={() => playVideo(item)}
                         >
@@ -429,6 +441,23 @@ export default function SoftDarkVideoPage() {
           </div>
         </section>
 
+        {/* ЗУРАГ ҮЗЭХ ХЭСЭГ */}
+        {activeImage && (
+          <section ref={imageSectionRef} className="image-section">
+            <div className="image-header">
+              <span className="image-label">СОНГОСОН ЗУРАГ</span>
+              <h2>{activeImage.title}</h2>
+            </div>
+            <div className="image-wrap">
+              <img src={activeImage.src} alt={activeImage.title} />
+            </div>
+            <p className="image-note">
+              Бүтээгдэхүүний зургийг дээрх байдлаар томруулж харах боломжтой.
+            </p>
+          </section>
+        )}
+
+        {/* ВИДЕО ТОГЛУУЛАГЧ ХЭСЭГ */}
         {activeVideo && (
           <section ref={videoSectionRef} className="video-section">
             <div className="video-header">
