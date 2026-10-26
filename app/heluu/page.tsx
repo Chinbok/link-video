@@ -109,6 +109,10 @@ const sections: Section[] = [
         title: "Автомат шодой",
         src: `${VIDEO_BASE}/a_vibe_dildo.mp4`,
       },
+      {
+        title: "Хосын тоглоом",
+        src: `${VIDEO_BASE}/hos_togloom_heregleech1.mp4`,
+      },
     ],
   },
 ];
