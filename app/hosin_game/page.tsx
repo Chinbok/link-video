@@ -279,7 +279,7 @@ export default function SoftDarkVideoPage() {
 
       <div className="page-container">
         <header className="page-header">
-          <div className="eyebrow">хэрэглээж байгааБИЧЛЭГ</div>
+          <div className="eyebrow">ХЭРЭГЛЭЭЖ БАЙГАА БИЧЛЭГ</div>
           <h1>ЗӨВХӨН НАСАНД ХҮРЭГЧИД</h1>
           <div className="header-info">
             <p>
