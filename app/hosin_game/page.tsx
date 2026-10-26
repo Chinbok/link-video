@@ -24,7 +24,7 @@ const sections: Section[] = [
     link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
     image: "https://erchuudiindelguur.mn/videos/таны_зургийн_нэр.png", // 👈 WordPress рүү оруулсан зургаа энд бичнэ үү
   },
-  // 2. 2 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (hos-1 болон hos-2 видеонуудтай)
+  // 2. 2 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (3 видеотой)
   {
     title: "Хосын тоглоом",
     items: [
@@ -35,6 +35,10 @@ const sections: Section[] = [
       {
         title: "video",
         src: `${VIDEO_BASE}/hos_1.mp4`,
+      },
+      {
+        title: "HOS porn",
+        src: `${VIDEO_BASE}/hos_porn.mp4`, // 👈 Шинээр нэмэгдсэн HOS porn видео
       },
     ],
   },
