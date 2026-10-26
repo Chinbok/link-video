@@ -18,13 +18,37 @@ type Section = {
 const VIDEO_BASE = "https://erchuudiindelguur.mn/videos";
 
 const sections: Section[] = [
-  // 1. 1 дүгээрт байрлах зурагтай линк товч
+  // 1 дүгээрт байрлах зурагтай линк товч
   {
-    title: "Шинэ товчны нэр энд бичнэ үү",
+    title: "Бүтээгдэхүүн 1",
     link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
-    image: "https://erchuudiindelguur.mn/videos/таны_зургийн_нэр.png", // 👈 WordPress рүү оруулсан зургаа энд бичнэ үү
+    image: `${VIDEO_BASE}/hos_071.png`,
   },
-  // 2. 2 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (3 видеотой)
+  // 2 дугаарт байрлах зурагтай линк товч
+  {
+    title: "Бүтээгдэхүүн 2",
+    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
+    image: `${VIDEO_BASE}/hos_072.png`,
+  },
+  // 3 дугаарт байрлах зурагтай линк товч
+  {
+    title: "Бүтээгдэхүүн 3",
+    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
+    image: `${VIDEO_BASE}/hos_073.png`,
+  },
+  // 4 дүгээрт байрлах зурагтай линк товч
+  {
+    title: "Бүтээгдэхүүн 4",
+    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
+    image: `${VIDEO_BASE}/hos_074.png`,
+  },
+  // 5 дугаарт байрлах зурагтай линк товч
+  {
+    title: "Бүтээгдэхүүн 5",
+    link: "ЭНД_ҮСРЭХ_ЛИНКЭЭ_ТАВИНА_УУ",
+    image: `${VIDEO_BASE}/hos_075.png`,
+  },
+  // 6 дугаарт байрлах Dropdown-той Хосын тоглоом хэсэг (3 видеотой)
   {
     title: "Хосын тоглоом",
     items: [
@@ -37,12 +61,12 @@ const sections: Section[] = [
         src: `${VIDEO_BASE}/hos_1.mp4`,
       },
       {
-        title: "HOS porn",
-        src: `${VIDEO_BASE}/hos_porn.mp4`, // 👈 Шинээр нэмэгдсэн HOS porn видео
+        title: "vedio-3",
+        src: `${VIDEO_BASE}/hos_porn.mp4`,
       },
     ],
   },
-  // 3. 3 дугаарт байрлах захиалга өгөх линк
+  // 7 дугаарт байрлах захиалга өгөх линк
   {
     title: "Захиалга өгөх",
     link: "https://www.facebook.com/profile.php?id=61584532924262",
@@ -313,8 +337,8 @@ export default function SoftDarkVideoPage() {
 
         <section className="guide-card">
           <div className="guide-heading">
-            <span>ХОСЫН ТОГЛООМ </span>
-            <small>Бичлэг үзэх бол доорх товчлуур дээр дарна уу</small>
+            <span>БҮТЭЭГДЭХҮҮН & ВИДЕО</span>
+            <small>Бичлэг үзэх эсвэл линк рүү орох бол дарна уу</small>
           </div>
           <div className="section-list">
             {sections.map((section, index) => {
